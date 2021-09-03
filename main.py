@@ -53,23 +53,21 @@ def user():
   name = None
   form = first_user_form()
   user = []
-  user.append(db["user"])
   password=[]
-  password.append(db['password'])
   email = []
-  email.append(db["email"])
+
   if form.validate_on_submit():
     name = form.name.data
     user.append(name)
-    db["user"] = user
+    db["user"] += name
     form.name.data = ''
     email_id = form.email.data
     email.append(email_id)
-    db["email"] = email
+    db["email"] += email
     form.email.data = ''
     passw = form.password.data
     password.append(passw)
-    db['password'] = password
+    db['password'] += password
     form.password.data = ''
     flash("Cool, you're signed up ")
   return render_template('user.html', name = name, form = form)
@@ -141,4 +139,4 @@ def weathery():
   return render_template('weather.html',name=name,form=form)
 
 if __name__ == '__main__':
-	app.run(debug=True, host='0.0.0.0', port=8080)
+	app.run(debug=False, host='0.0.0.0', port=8080)
