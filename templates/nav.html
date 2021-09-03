@@ -1,0 +1,70 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="{{url_for('index')}}"><strong>LivenIT</strong></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      
+      <li class="nav-item">
+        <a class="nav-link" href="{{ url_for('user')}}">Profile</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Tools
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="{{ url_for('tax_page')}}">Reverse Tax From Total</a>
+        
+ 
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="{{ url_for('flight_page')}}">Scan Budget Flights</a>
+
+
+          <div class="dropdown-divider"></div>
+          
+          <a class="dropdown-item" href="{{ url_for('iss_page')}}">Find Humans in Space</a>
+
+          <div class="dropdown-divider"></div>
+          
+          <a class="dropdown-item" href="{{ url_for('weathery')}}">Realtime Weather Check</a>
+          
+          
+          <div class="dropdown-divider"></div>
+          
+
+          <a class="dropdown-item" href="https://mars.nasa.gov/participate/send-your-name/future">Send Name to Mars </a>
+          <!div class="dropdown-divider"><!/div>
+          <!a class="dropdown-item" href="#"></a> 
+          
+
+
+        
+
+
+
+
+          
+          <!div class="dropdown-divider"><!/div>
+          <!a class="dropdown-item" href="#"></a>
+     
+         
+          <!div class="dropdown-divider"><!/div>
+          <!a class="dropdown-item" href="#"></a>
+
+
+        
+        </div>
+      </li>
+
+ 
+      <li class="nav-item">
+        
+        <a class="nav-link disabled" href="#">#ASTRATECHZ</a>
+      </li>
+    </ul>
+  </div>
+
+  
+</nav>
