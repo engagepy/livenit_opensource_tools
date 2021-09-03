@@ -34,16 +34,13 @@ class weather_form(FlaskForm):
 	submit = SubmitField('Get Weather')
 
 class tax_form(FlaskForm):
-	total = FloatField("Enter Tax Inclusive Amount: ",
-	                   validators=[DataRequired()])
+	total = FloatField("Enter Tax Inclusive Amount: ",validators=[DataRequired()])
 	tax = FloatField("Enter Tax %: ", validators=[DataRequired()])
 	submit = SubmitField('Calculate!')
 
 class flight_form(FlaskForm):
-	departure = StringField("Enter Departure Airport Code: ",
-	                        validators=[DataRequired()])
-	arrival = StringField("Enter Arrival Airport Code: ",
-	                      validators=[DataRequired()])
+	departure = StringField("Enter Departure Airport Code: ",validators=[DataRequired()])
+	arrival = StringField("Enter Arrival Airport Code: ", validators=[DataRequired()])
 	submit = SubmitField('Rates and Dates!')
 
 @app.route('/')
@@ -105,12 +102,7 @@ def tax_page():
 
 		flash('Total, Tax, Pre-Tax Total & Tax Amount - That Easy! Refer Us. ')
 
-	return render_template('tax.html',
-	                       total=total,
-	                       tax=tax,
-	                       pre_tax=round(pre_tax, 2),
-	                       tax_amount=round(tax_amount, 2),
-	                       form=form)
+	return render_template('tax.html', total=total,tax=tax,pre_tax=round(pre_tax, 2),tax_amount=round(tax_amount, 2),form=form)
 
 @app.route('/flight', methods=['GET', 'POST'])
 def flight_page():
@@ -129,10 +121,7 @@ def flight_page():
 		flash(x[1])
 		#os.system("python iss.py")
 		#iss.send_msg(number)
-	return render_template('flights.html',
-	                       arrival=arrival,
-	                       departure=departure,
-	                       form=form)
+	return render_template('flights.html',arrival=arrival,departure=departure,form=form)
 
 @app.route('/weathers', methods=['GET', 'POST'])
 def weathery():
@@ -146,8 +135,7 @@ def weathery():
     flash(x)
 		#os.system("python iss.py")
 		#iss.send_msg(number)
-  return render_template('weather.html',name=name,
-	                       form=form)
+  return render_template('weather.html',name=name,form=form)
 
 if __name__ == '__main__':
 	app.run(debug=False, host='0.0.0.0', port=8080)
