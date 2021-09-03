@@ -3,13 +3,12 @@ import iss
 from flask import Flask, render_template, flash
 from flask_bootstrap import Bootstrap
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, FloatField, PasswordField, BooleanField, IntegerField
+from wtforms import StringField, SubmitField, FloatField, PasswordField, BooleanField
 from wtforms.fields.html5 import EmailField
 from wtforms.validators import DataRequired, Email
 from replit import db
 from weathers import weather
 from flight import flight_message
-import requests
 
 my_secret = os.environ['SECRET_KEY']
 id_key = 0
