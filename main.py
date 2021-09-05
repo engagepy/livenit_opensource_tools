@@ -9,6 +9,7 @@ from wtforms.validators import DataRequired, Email
 from replit import db
 from weathers import weather
 from flight import flight_message
+from crypto import coin
 
 my_secret = os.environ['SECRET_KEY']
 id_key = 0
@@ -32,6 +33,10 @@ class iss_form(FlaskForm):
 class weather_form(FlaskForm):
 	name = StringField("Enter Prominent City ", validators=[DataRequired()])
 	submit = SubmitField('Get Weather')
+
+class crypto_form(FlaskForm):
+	name = StringField("Enter BitCoin Symbol (eg: 'btc' )", validators=[DataRequired()])
+	submit = SubmitField('BTC Update!')  
 
 class tax_form(FlaskForm):
 	total = FloatField("Enter Tax Inclusive Amount: ",validators=[DataRequired()])
@@ -137,5 +142,22 @@ def weathery():
 		#iss.send_msg(number)
   return render_template('weather.html',name=name,form=form)
 
+@app.route('/crypto', methods=['GET', 'POST'])
+def btc():
+  name = None
+  form = crypto_form()
+
+  if form.validate_on_submit():
+    name = "BTC"
+    form.name.data = ''
+    result = coin()
+    flash(result[0])
+    flash(result[1])
+    flash(result[2])
+    flash(result[3])
+    flash(result[4])
+    flash(result[5])
+  return render_template('crypto.html', name = name, form = form)
+
 if __name__ == '__main__':
-	app.run(debug=False, host='0.0.0.0', port=8080)
+	app.run(debug=True, host='0.0.0.0', port=8080)
