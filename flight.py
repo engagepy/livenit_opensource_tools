@@ -2,7 +2,9 @@ import requests
 def flight_message(arrival, departure):
 	url = f"https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/IN/INR/en-US/{departure}-sky/{arrival}-sky/anytime"
 
-	querystring = {"inboundpartialdate": "2019-12-01"}
+	querystring = {
+    "inboundpartialdate": "2019-12-01"
+    }
 
 	headers = {
 	    'x-rapidapi-key': "ca396c8c62mshf51f177a6611b4ap1cf15ajsnb909632c0ce7",

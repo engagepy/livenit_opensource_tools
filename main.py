@@ -74,7 +74,10 @@ def user():
     db['password'] += password
     form.password.data = ''
     flash("Cool, you're signed up ")
-  return render_template('user.html', name = name, form = form)
+  return render_template(
+            'user.html', name = name, 
+            form = form
+            )
 
 @app.route('/iss', methods=['GET', 'POST'])
 def iss_page():
@@ -85,7 +88,10 @@ def iss_page():
     name = form.name.data
     form.name.data = ''
     flash(iss.message())
-  return render_template('iss.html', name=name, form=form)
+  return render_template(
+            'iss.html', name=name, 
+            form=form
+            )
 
 @app.route('/tax', methods=['GET', 'POST'])
 def tax_page():
@@ -107,7 +113,11 @@ def tax_page():
 
 		flash('Total, Tax, Pre-Tax Total & Tax Amount - That Easy! Refer Us. ')
 
-	return render_template('tax.html', total=total,tax=tax,pre_tax=round(pre_tax, 2),tax_amount=round(tax_amount, 2),form=form)
+	return render_template(
+            'tax.html', total=total,tax=tax,
+            pre_tax=round(pre_tax, 2),tax_amount=round(tax_amount, 2),
+            form=form
+            )
 
 @app.route('/flight', methods=['GET', 'POST'])
 def flight_page():
@@ -126,7 +136,10 @@ def flight_page():
 		flash(x[1])
 		#os.system("python iss.py")
 		#iss.send_msg(number)
-	return render_template('flights.html',arrival=arrival,departure=departure,form=form)
+	return render_template(
+            'flights.html',arrival=arrival,
+            departure=departure,form=form
+            )
 
 @app.route('/weathers', methods=['GET', 'POST'])
 def weathery():
@@ -140,7 +153,10 @@ def weathery():
     flash(x)
 		#os.system("python iss.py")
 		#iss.send_msg(number)
-  return render_template('weather.html',name=name,form=form)
+  return render_template(
+           'weather.html',
+           name=name,form=form
+           )
 
 @app.route('/crypto', methods=['GET', 'POST'])
 def btc():
@@ -157,7 +173,10 @@ def btc():
     flash(result[3])
     flash(result[4])
     flash(result[5])
-  return render_template('crypto.html', name = name, form = form)
+  return render_template(
+            'crypto.html', name = name, 
+            form = form
+            )
 
 if __name__ == '__main__':
-	app.run(debug=True, host='0.0.0.0', port=8080)
+	app.run(debug=False, host='0.0.0.0', port=8080)

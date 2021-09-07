@@ -11,7 +11,9 @@ def coin():
     'x-rapidapi-key': "ca396c8c62mshf51f177a6611b4ap1cf15ajsnb909632c0ce7"
     }
 
-  response = requests.request("POST", url, data=payload, headers=headers)
+  response = requests.request(
+            "POST", url, data=payload, 
+            headers=headers)
   datas = response.json()
   token = datas['access_token']
 
@@ -19,13 +21,17 @@ def coin():
   print(response.text)
 
   url = "https://bravenewcoin.p.rapidapi.com/market-cap"
-  querystring = {"assetId":" f1ff77b6-3ab4-4719-9ded-2fc7e71cff1f"}
+  querystring = {
+    "assetId":" f1ff77b6-3ab4-4719-9ded-2fc7e71cff1f"
+    }
   headers = {
         'authorization': f"Bearer {token}",
         'x-rapidapi-host': "bravenewcoin.p.rapidapi.com",
         'x-rapidapi-key': "ca396c8c62mshf51f177a6611b4ap1cf15ajsnb909632c0ce7"
         }
-  response = requests.request("GET", url, headers=headers, params=querystring)
+  response = requests.request(
+            "GET", url, headers=headers, 
+            params=querystring)
   dic = response.json()
   print(dic)
  
