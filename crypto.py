@@ -1,6 +1,8 @@
-import requests
+
 
 def coin():
+
+  import requests
 
   url = "https://bravenewcoin.p.rapidapi.com/oauth/token"
 
@@ -18,7 +20,7 @@ def coin():
   token = datas['access_token']
 
 
-  print(response.text)
+  #print(response.text)
 
   url = "https://bravenewcoin.p.rapidapi.com/market-cap"
   querystring = {
@@ -33,7 +35,7 @@ def coin():
             "GET", url, headers=headers, 
             params=querystring)
   dic = response.json()
-  print(dic)
+  ##print(dic)
  
   data = dic['content']
   price = data[0]['price']
@@ -41,12 +43,15 @@ def coin():
   volume = data[0]['volume']
   totalsupply = data[0]['totalSupply']
   timestamp = data[0]['timestamp']
-  print(data)
+  #print(data)
   mes1 = f"BTC Market Capital Rank is {marketcaprank}."  
   mes2 = f"BTC in $ = {price} per/btc."
   mes3 = f"Market Volume = {volume}."
   mes4 = f"Total Supply Mined of 21 Million Max Coins = {totalsupply}."
   mes5 = f" "
   mes6 = f"Data fetched on {timestamp}"
+
+
+  print(mes1, mes2,mes3,mes4,mes5,mes6)
 
   return mes1, mes2, mes3, mes4, mes5, mes6

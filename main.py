@@ -111,7 +111,9 @@ def tax_page():
 		pre_tax = total / tax_1
 		tax_amount = total - pre_tax
 
-		flash('Total, Tax, Pre-Tax Total & Tax Amount - That Easy! Refer Us. ')
+		flash(
+      'Total, Tax, Pre-Tax Total & Tax Amount - That Easy! Refer Us. '
+      )
 
 	return render_template(
             'tax.html', total=total,tax=tax,
