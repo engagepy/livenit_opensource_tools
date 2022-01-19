@@ -3,13 +3,14 @@ import iss
 from flask import Flask, render_template, flash
 from flask_bootstrap import Bootstrap
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, FloatField, PasswordField, BooleanField
+from wtforms import StringField, SubmitField, FloatField, PasswordField, BooleanField, IntegerField
 from wtforms.fields.html5 import EmailField
 from wtforms.validators import DataRequired, Email
 from replit import db
 from weathers import weather
 from flight import flight_message
 from crypto import coin
+from primes import prime
 
 my_secret = os.environ['SECRET_KEY']
 id_key = 0
@@ -48,6 +49,11 @@ class flight_form(FlaskForm):
 	arrival = StringField("Enter Arrival Airport Code: ", validators=[DataRequired()])
 	submit = SubmitField('Rates and Dates!')
 
+class prime_form(FlaskForm):
+  name = StringField("Your Name To Activate ! ",validators=[DataRequired()])
+  submit = SubmitField('Activate Prime Sequence')
+  
+  
 @app.route('/')
 def index():
 	return render_template('landing.html')
@@ -180,5 +186,21 @@ def btc():
             form = form
             )
 
+@app.route('/prime', methods=['GET', 'POST'])
+def prime_page():
+  name = None
+  form = prime_form()
+
+  if form.validate_on_submit():
+    name = form.name.data
+    form.name.data = " "
+    result = prime()
+    flash(result)
+  return render_template(
+            'prime.html', name = name, 
+            form = form
+            )
+
+
 if __name__ == '__main__':
-	app.run(debug=True, host='0.0.0.0', port=8080)
+	app.run(debug=False, host='0.0.0.0', port=8080)
