@@ -58,7 +58,7 @@ class prime_form(FlaskForm):
 def index():
 	return render_template('landing.html')
 
-@app.route('/user', methods=['GET', 'POST'])
+@app.route('/community', methods=['GET', 'POST'])
 def user():
   name = None
   form = first_user_form()
