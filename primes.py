@@ -1,3 +1,4 @@
+import pprint
 def prime():
   a=1
   b=1
@@ -16,14 +17,17 @@ def prime():
             flag = True
             pass
     if flag:
-      mes = f"{a} is not a Prime."
+      mes = f"{a} not Prime."
       list.append(mes)
       flag = None
       a += b
     else:
-      mes = f"{a} is PRIME."
+      mes = f'{a} == PRIME.'
       list.append(mes)
       flag = None
       a += b
-    print('Running Prime')
-  return list
+  mes = f'{len(list)} numerical tests done. Increasing capacity soon.'
+  print(f'{len(list)} tests done')
+  print('Running Prime')
+  list = ( " ".join(list))
+  return list, mes

@@ -1,5 +1,4 @@
 import requests
- 
 def weather(city):
   url = "https://community-open-weather-map.p.rapidapi.com/find"
 
@@ -20,4 +19,7 @@ def weather(city):
   data = dic['list']
   data = data[0]['main']
   print(data)
-  return data
+  data_refined = f'Temperature °C = {data["temp"]} | Feels Like = {data["feels_like"]} | Min = {data["temp_min"]} | Max = {data["temp_max"]} | Pressure = {data["pressure"]} | Humidity = {data["humidity"]}' 
+
+  print(data_refined)
+  return data_refined

@@ -195,7 +195,9 @@ def prime_page():
     name = form.name.data
     form.name.data = " "
     result = prime()
-    flash(result)
+    flash(result[1])
+    flash("--------- ")
+    flash(result[0])
   return render_template(
             'prime.html', name = name, 
             form = form
