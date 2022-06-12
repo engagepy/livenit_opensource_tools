@@ -1,4 +1,4 @@
-import pprint
+#import pprint
 def prime():
   a=1
   b=1
@@ -26,7 +26,7 @@ def prime():
       list.append(mes)
       flag = None
       a += b
-  mes = f'{len(list)} numerical tests done. Increasing capacity soon.'
+  mes = f'{len(list)} numerical tests done.'
   print(f'{len(list)} tests done')
   print('Running Prime')
   list = ( " ".join(list))
