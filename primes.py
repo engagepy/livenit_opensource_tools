@@ -4,7 +4,7 @@ def prime():
   b=1
   flag = None
   list = []
-
+  count = 0
   while a != 1001:
     
     if a == 1:
@@ -23,10 +23,11 @@ def prime():
       a += b
     else:
       mes = f'{a} == PRIME.'
+      count += 1
       list.append(mes)
       flag = None
       a += b
-  mes = f'{len(list)} numerical tests done.'
+  mes = f'{len(list)} Math Operations || {count} Prime found.'
   print(f'{len(list)} tests done')
   print('Running Prime')
   list = ( " ".join(list))
