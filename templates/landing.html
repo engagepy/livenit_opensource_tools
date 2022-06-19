@@ -1,34 +1,38 @@
 {% extends 'base.html' %}
 {%block content%}
 <style>
-h1 {text-align: left;}
-p {text-align: left;}
-div {text-align: left;}
+h1 {color: white; text-align: left;}
+p { color: white; text-align: left;}
+div {color: white; text-align: left;}
 </style>
 
-<div class="alert alert-primary" role="alert">
+<div class="alert bg-dark" role="alert" >
 
 
   <hr>
-  
-  <p> <strong> Digital Tools </strong> based on A|R|A application philosophy.</p> 
+
+  <h2><p style = "color: #14cff5" > <strong> Digital Tools </strong> based on  A|R|A philosophy.</h2></p> 
+  <br>
+
  <p>
+   <h3>
   <ul>
-    <li><b>Access</b> Data 
-    <li><b>Research</b> Scope
-    <li><b>Automate</b> Tasks
+    <li><b style = " color:#14cff5 ">Access</b> Data 
+    <li><b style = " color:#14cff5 ">Research</b> Scope
+    <li><b style = " color:#14cff5 ">Automate</b> Tasks
   </ul>
- <p><b>Enterprise</b> level Tools & AI for the <b>individual</b>. 
-   
-  <p>Made in India 🙏 </p></p></p>
+     </h3>
+
+  <br>
+ <p> 
+
+  </p></p>
   <hr>
-  
-  
   
 
 </ol>
   
-  <p><strong> Your Space for Thought & Productivity! </strong> </p>
+  <h4><p><strong> A Space for Thought & Productivity! </strong></h4> </p>
 </div>
 
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -43,9 +47,9 @@ div {text-align: left;}
   </symbol>
 </svg>
 
-<div class="alert alert-primary d-flex align-items-left" role="alert">
+<div class="alert bg-dark d-flex align-items-left" role="alert">
   <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info:"><use xlink:href="#info-fill"/></svg>
- <b> &nbsp; Join Our <b> <a href="{{url_for('user')}}"> Techy Community</a>,</b>  <strong> Explore Our Menu !</strong></b></div>
+ <b> &nbsp; Join the <b> <a href="{{url_for('user')}}">Community</a></b>  </b></div>
 </div>
 
 </body>
