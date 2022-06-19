@@ -5,6 +5,7 @@
 <div class="alert alert-primary" role="alert">
   <p>
   {% if name %}
+    <h3>Activated by <strong>{{ name | upper}}</strong></h3>
   <div class="alert alert-danger alert-dismissible fade show" role="alert">
   {% for message in get_flashed_messages() %}
       <h3> {{message}} </h3>
@@ -13,7 +14,7 @@
    <span aria-hidden="true">&times;</span>
    </button>
   </div>
-  <h3>Activated by <strong>{{ name | upper}}</strong>.</h3>
+  
   {% else %}
   <h3>Prime Number Generator</h3>
 </div>
