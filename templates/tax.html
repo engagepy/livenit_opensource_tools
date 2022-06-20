@@ -63,16 +63,16 @@
 {% else %}
 
 <h3>
-    Reverse Tax From Total </h3>
+    Reverse % From Total </h3>
 
 <div class="alert alert-danger alert-dismissible fade show" role="alert">
     {% for message in get_flashed_messages() %}
       <h4>
        </hr>
        || <b>Total</b> = {{total}} ||
-       <b>Tax %</b> = {{tax}} ||
-       <b>Pre Tax Total</b> = {{pre_tax}} ||
-       <b>Tax Amount</b>  = {{tax_amount}} ||</h4>
+       <b>%</b> = {{tax}} ||
+       <b>Pre % Total</b> = {{pre_tax}} ||
+       <b>% Value</b>  = {{tax_amount}} ||</h4>
     {%endfor%}
   
   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
