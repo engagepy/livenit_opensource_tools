@@ -1,25 +1,27 @@
 import requests
+import os
+import googlemaps
+
+
+
+
 def weather(city):
-  url = "https://community-open-weather-map.p.rapidapi.com/find"
+  #r2 = requests.get(
+    #f'https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key={os.environ["googlemap_key"]}')
+  gmaps = googlemaps.Client(key=os.environ['googlemap_key'])
+  geocode_result = gmaps.geocode(city)
+  print(geocode_result)
+  r = requests.get(
+    f"https://api.openweathermap.org/data/3.0/onecall?lat=33.44&lon=-94.04&exclude=hourly,daily&appid={os.environ['openweather_key']}"
+  )
+  r = r.json()
+  #r2 = r2.json()
+  print("R is responding with: :", r)
+  #print("R2 is responding with: :", r2)
 
-  querystring = {
-    "q":f"{city}","cnt":"1","mode":"html","lon":"0","type":"accurate","lat":"0","units":"metric"
-    }
 
-  headers = {
-    'x-rapidapi-host': "community-open-weather-map.p.rapidapi.com",
-    'x-rapidapi-key': "ca396c8c62mshf51f177a6611b4ap1cf15ajsnb909632c0ce7"
-    }
+#  data_refined = f'Temperature °C = {data["temp"]} | Feels Like =
+#{data["feels_like"]} | Min = {data["temp_min"]} | Max = {data["temp_max"]} | #Pressure = {data["pressure"]} | Humidity = {data["humidity"]}'
 
-  response = requests.request(
-            "GET", url, headers=headers, 
-            params=querystring)
-  dic = response.json()
-  print(dic)
-  data = dic['list']
-  data = data[0]['main']
-  print(data)
-  data_refined = f'Temperature °C = {data["temp"]} | Feels Like = {data["feels_like"]} | Min = {data["temp_min"]} | Max = {data["temp_max"]} | Pressure = {data["pressure"]} | Humidity = {data["humidity"]}' 
-
-  print(data_refined)
-  return data_refined
+#  print(data_refined)
+#  return data_refined

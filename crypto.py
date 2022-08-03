@@ -43,7 +43,7 @@ def coin():
     mes3 = f"Market Volume = {volume}."
     mes4 = f"Total Supply Mined of 21 Million Max Coins = {totalsupply}."
     mes5 = f" "
-    mes6 = f"Data fetched on {timestamp}"
+    mes6 = f"Data udpated on {timestamp[0:10]}"
 
     print(mes1, mes2, mes3, mes4, mes5, mes6)
 
