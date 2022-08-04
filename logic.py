@@ -13,6 +13,14 @@ from __main__ import app
 def index():
     return render_template('landing.html')
 
+@app.route('/manifest.json')
+def manifest():
+    return render_template('manifest.json')
+
+@app.route('/images/app-icon-512x512.png')
+def images():
+    return render_template('manifest.json')  
+
 @app.route('/community', methods=['GET', 'POST'])
 def user():
     name = None
