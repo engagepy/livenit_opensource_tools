@@ -32,16 +32,17 @@ def coin():
     ##print(dic)
 
     data = dic['content']
-    price = data[0]['price']
+    price = str(data[0]['price'])
     marketcaprank = data[0]['marketCapRank']
-    volume = data[0]['volume']
+    total_market_cap = str(data[0]['totalMarketCap'])
+    print(data)
     totalsupply = data[0]['totalSupply']
     timestamp = data[0]['timestamp']
     #print(data)
     mes1 = f"BTC Market Capital Rank is {marketcaprank}."
-    mes2 = f"BTC in $ = {price} per/btc."
-    mes3 = f"Market Volume = {volume}."
-    mes4 = f"Total Supply Mined of 21 Million Max Coins = {totalsupply}."
+    mes2 = f"BTC in $ = {price[0:9]} per/btc."
+    mes3 = f"Total M Capitalization $$ = {total_market_cap[0:20]}"
+    mes4 = f"Total Mined of 21 Million Max Coins = {totalsupply}."
     mes5 = f" "
     mes6 = f"Data udpated on {timestamp[0:10]}"
 

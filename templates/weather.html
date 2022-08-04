@@ -4,7 +4,7 @@
 
 <div class="alert alert-primary" role="alert">
    <p>
-   {% if name %}
+   {% if lat and lon %}
   <div class="alert alert-danger alert-dismissible fade show" role="alert">
     {% for message in get_flashed_messages() %}
       <h3> {{message}} </h3>
@@ -14,10 +14,10 @@
    <span aria-hidden="true">&times;</span>
    </button>
   </div>
-  <h3>  Weather for <strong>{{ name | title}}</strong> updated.</h3>
+  <h3> Live Weather Updated</h3>
   
   {% else %}
-    <h3>Live Weather Data - Any City ! [eg: New York, London, Port Blair]</h3>
+    <h3>Live Weather Data - Any Coordinate on Earth | Geocoding Coming soon ..</h3>
  </div>
 
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -35,9 +35,13 @@
   <form method ="POST">
     {{ form.hidden_tag()}}
 
-    {{form.name.label(class="form-label")}}
+    {{form.lat.label(class="form-label")}}
 
-    {{form.name(class="form-control")}}
+    {{form.lat(class="form-control")}}
+
+    {{form.lon.label(class="form-label")}}
+
+    {{form.lon(class="form-control")}}
 
 
 

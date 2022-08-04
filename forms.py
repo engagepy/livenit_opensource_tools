@@ -18,7 +18,9 @@ class iss_form(FlaskForm):
 
 
 class weather_form(FlaskForm):
-    name = StringField("Enter Prominent City ", validators=[DataRequired()])
+    lat = FloatField("Enter Latitude with 2 decimal places ", validators=[DataRequired()])
+    lon = FloatField("Enter Longitude with 2 decimal places ", validators=[DataRequired()])
+    
     submit = SubmitField('Get Weather')
 
 
