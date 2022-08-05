@@ -5,19 +5,21 @@
 <div class="alert alert-primary" role="alert">
    <p>
    {% if lat and lon %}
-  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+  <div class="alert alert-danger alert-dismissible fade show" role="alert" align = "center">
     {% for message in get_flashed_messages() %}
       <h3> {{message}} </h3>
+      
     {%endfor%}
   
    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
    <span aria-hidden="true">&times;</span>
    </button>
   </div>
-  <h3> Live Weather Updated</h3>
+  <h3 align = "center"> Live Weather Updated</h3>
+  <h6 align = "center"> Feedback : info@astratechz.com </h6>
   
   {% else %}
-    <h3>Live Weather Data - Any Coordinate on Earth | Geocoding Coming soon ..</h3>
+    <h3 align = center>Live Weather Data - Any Coordinate on Earth | Geocoding Coming soon ..</h3>
  </div>
 
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -32,7 +34,7 @@
   <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info:"><use xlink:href="#info-fill"/></svg> &nbsp;
  <b>  
    
-  <form method ="POST">
+  <form method ="POST" >
     {{ form.hidden_tag()}}
 
     {{form.lat.label(class="form-label")}}
@@ -42,10 +44,6 @@
     {{form.lon.label(class="form-label")}}
 
     {{form.lon(class="form-control")}}
-
-
-
-
 
      <p></p>
 
