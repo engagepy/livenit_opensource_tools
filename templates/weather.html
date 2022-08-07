@@ -2,62 +2,67 @@
 
 {% block content %}
 
-<div class="alert alert-primary" role="alert">
-   <p>
-   {% if lat and lon %}
+
+   {% if city %}
   <div class="alert alert-danger alert-dismissible fade show" role="alert" align = "center">
     {% for message in get_flashed_messages() %}
       <h3> {{message}} </h3>
       
     {%endfor%}
+  </div>  
+
+   <p> <h3>
+    
+      <b style = " color:#14cff5 "> <h3 align = "center"> Live Weather Updated</h3></b> <br>
+      <b style = " color:#14cff5 "><h6 align = "center"> Feedback : info@astratechz.com </h6></b> 
+    
+  </h3></p>
   
-   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-   <span aria-hidden="true">&times;</span>
-   </button>
-  </div>
-  <h3 align = "center"> Live Weather Updated</h3>
-  <h6 align = "center"> Feedback : info@astratechz.com </h6>
+  <br>
+  <hr>
+
+  
   
   {% else %}
-    <h3 align = center>Live Weather Data - Any Coordinate on Earth | Geocoding Coming soon ..</h3>
- </div>
+    
+<style>
+h1 {color: white; text-align: center;}
+p { color: #14cff5; text-align: center;}
+div {color: white; text-align: center;}
+form {color: darkorange; text-align: center; width: 100%; textarea cols: "50"; }  
+</style>
 
-<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+<div class="alert bg-dark" role="alert">
+
+  <hr>
+  
  
-  <symbol id="info-fill" fill="currentColor" viewBox="0 0 16 16">
-    <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
-    </symbol>
-
-</svg>
-
-<div class="alert alert-primary d-flex align-items-left" role="alert">
-  <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info:"><use xlink:href="#info-fill"/></svg> &nbsp;
- <b>  
-   
-  <form method ="POST" >
+    <h3 align = center style = "color: #14cff5">Live Weather Data - Realtime, Specific, Global</h3> 
+  <h5 align = center style = "color: #14cff5">Enterprise accuracy for your location specific projects. <br> Use the tool anytime, with a detailed location input eg: "Khan Market, Delhi, India"</h5> 
+  <br>
+  <br>
+  
+  <form method ="POST"> 
+  
     {{ form.hidden_tag()}}
 
-    {{form.lat.label(class="form-label")}}
+    {{form.city.label(class="form-label")}}
 
-    {{form.lat(class="form-control")}}
+    {{form.city(class="form-control")}}
 
-    {{form.lon.label(class="form-label")}}
-
-    {{form.lon(class="form-control")}}
-
-     <p></p>
+    <br>
+    <br>
 
     {{form.submit(class="btn btn-outline-info")}}
 
 
-  </form>  </b>
-  
+  </form>  </b></div>
+    <br>
+    <br>
+    <br>
+
 {% endif %}  
-  </br>
-</p>
 
-  <hr>
-</div>
-
+ 
 
 {% endblock %}

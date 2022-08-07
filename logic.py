@@ -108,22 +108,23 @@ def flight_page():
 @app.route('/weathers', methods=['GET', 'POST'])
 def weathery():
 
-    lat = None
-    lon = None
+    city = None
     form = forms.weather_form()
     if form.validate_on_submit():
-        lat = form.lat.data
-        lon = form.lon.data
-        form.lat.data = None
-        form.lon.data = None
-        x = weather(lat,lon)
+        city = form.city.data
+        form.city.data = None
+        x = weather(city)
         print(x)
-        flash(x)
+        for i in x[0:]:
+          flash(i)
+        #flash(x)[0]
+        #flash(x)[1]
+        
 
 
 #os.system("python iss.py")
 #iss.send_msg(number)
-    return render_template('weather.html', lat=lat, lon=lon, form=form)
+    return render_template('weather.html', city=city, form=form)
 
 @app.route('/crypto', methods=['GET', 'POST'])
 def btc():
