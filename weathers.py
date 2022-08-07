@@ -15,6 +15,9 @@ def weather(lat, lon):
     )
     r = r.json()
     r2 = r2.json()
+    print(r)
+    print(" ")
+    print(" ")
     print(r2)
   
     format = r['current']
