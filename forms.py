@@ -18,7 +18,7 @@ class iss_form(FlaskForm):
 
 
 class weather_form(FlaskForm):
-    city = StringField("Enter location, remember you can get specific :) ", validators=[DataRequired()])
+    city = StringField("Enter location, remember you can get specific.", validators=[DataRequired()])
 
     
     submit = SubmitField('Get Weather')

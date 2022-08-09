@@ -17,7 +17,7 @@ form {color: darkorange; text-align: center; width: 100%; textarea cols: "50"; }
   <hr>
   
  
-    <h3 align = center style = "color: #14cff5">Reverse Tax Tool</h3>     <h7 align = center style = "color: white"> eg: "Finding 18% Tax of all inclusive 50,000. If you simply deduct 18%, you have an incorrect answer. Hence the tool ! "</h7>
+    <h3 align = center style = "color: #14cff5">Reverse Tax Tool</h3>     <h7 align = center style = "color: white"> eg: "Try finding 10% tax of all inclusive 10,000. If you guessed 1000, you have an incorrect answer. Hence the tool ! "</h7>
   <br>
   <br>
    
@@ -58,10 +58,10 @@ form {color: darkorange; text-align: center; width: 100%; textarea cols: "50"; }
     {% for message in get_flashed_messages() %}
       <h4>
        </hr>
-       || <b>Total</b> = {{total}} ||
-       <b>%</b> = {{tax}} ||
-       <b>Pre % Total</b> = {{pre_tax}} ||
-       <b>% Value</b>  = {{tax_amount}} ||</h4>
+       <b>Total</b> = {{total}} |
+       <b>{{tax}}%</b> = {{tax_amount}} |
+       <b>Pre % </b> = {{pre_tax}} 
+       </h4>
     {%endfor%}
   
   <button type="button" class="close" data-dismiss="alert" aria-label="Close">

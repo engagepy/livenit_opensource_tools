@@ -1,6 +1,7 @@
 import requests
 import os
 import datetime
+import pytz
 
 def weather(city):
     city = str(city)
@@ -36,7 +37,10 @@ def weather(city):
     next_day_hindi = str.title(r['daily'][0]['weather'][0]['description'])
     timestamp = r['current']['dt']
     value = datetime.datetime.fromtimestamp(timestamp)
-    #print(f"{value:%Y-%m-%d %H:%M:%S}")
+    india_time = datetime.datetime.now(pytz.timezone("Asia/Kolkata"))
+    gmt_time = f"{value:%Y-%m-%d %H:%M:%S}"
+    print(f"Greenwich Time: {gmt_time}")
+    print(f'India Time: {india_time}')
 
 
 
@@ -51,6 +55,7 @@ def weather(city):
     data_wind = f'Wind = {wind} m/sec'
     data_refined_2 = f'TimeZone : {formati}'
     data_refined_4 = f'Status = {format3}'
+    gmtime = f'Greenwich Time = {gmt_time}'
 
     next_day_feel = f"Next Day Feel = {next_day_feels}°C"
     forecast_eng = f"Next Day Forecast = {next_day_hindi}"
