@@ -24,9 +24,13 @@ form {color: darkorange; text-align: center; width: 100%; textarea cols: "50"; }
   <h3 align = center style = "color: #14cff5"><strong>{{ name | upper}}</strong> Data Updated</h3> <br>
   <b style = " color:#14cff5 "><h6 align = "center"> Feedback : info@astratechz.com </h6></b> 
   {% else %}
+
+
   <h3 align = center style = "color: #14cff5">Live BitCoin Updates</h3>      
 
-   
+   <div class="alert bg-dark" role="alert">
+
+  <hr>
   <form method ="POST">
   {{ form.hidden_tag()}}
 
