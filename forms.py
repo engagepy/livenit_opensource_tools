@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, FloatField, PasswordField, BooleanField
 from wtforms.fields.html5 import EmailField
-from wtforms.validators import DataRequired, Email
+from wtforms.validators import DataRequired, Email, Length
 
 
 class first_user_form(FlaskForm):
@@ -25,9 +25,9 @@ class weather_form(FlaskForm):
 
 
 class crypto_form(FlaskForm):
-    name = StringField("Enter BitCoin Symbol (eg: 'btc' )",
-                       validators=[DataRequired()])
-    submit = SubmitField('BTC Update!')
+    name = StringField("Symbols Only (eg: btc, sol, eth )",
+                       validators=[DataRequired(), Length(max=5)])
+    submit = SubmitField('Crypto Update!')
 
 
 class tax_form(FlaskForm):

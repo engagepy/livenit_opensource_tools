@@ -121,20 +121,20 @@ def weathery():
 
 @app.route('/crypto', methods=['GET', 'POST'])
 def btc():
-    name = None
+    symbol = None
     form = forms.crypto_form()
 
     if form.validate_on_submit():
-        name = "BTC"
+        symbol = form.name.data
         form.name.data = ''
-        result = coin()
+        result = coin(symbol)
         flash(result[0])
         flash(result[1])
         flash(result[2])
         flash(result[3])
         flash(result[4])
         flash(result[5])
-    return render_template('crypto.html', name=name, form=form)
+    return render_template('crypto.html', symbol=symbol, form=form)
 
 @app.route('/prime', methods=['GET', 'POST'])
 def prime_page():
@@ -152,6 +152,7 @@ def prime_page():
         mathops = result[2]
         count = result[3]
     return render_template('prime.html', name=name, form=form, count=count, mathops = mathops)
+
 
 @app.route('/nft', methods=['GET', 'POST'])
 def nft():
