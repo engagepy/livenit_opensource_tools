@@ -10,8 +10,11 @@ form {color: darkorange; text-align: center; width: 100%; textarea cols: "50"; }
 
   <p>
   {% if name %}
+     <h3 align = center style = "color: #14cff5">Activated by <strong>{{ name | upper}}</strong></h3> <br>
+     <h4 align = center style = "color: #14cff5">{{mathops}} Math Operations | {{count}} Prime Numbers ♚ </h4> 
+    <hr>
     <div class="alert alert-primary" role="alert">
-    <h3>Activated by <strong>{{ name | upper}}</strong></h3>
+    
 
   {% for message in get_flashed_messages() %}
       <h3> {{message}} </h3>

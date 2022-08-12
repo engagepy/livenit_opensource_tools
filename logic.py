@@ -140,15 +140,18 @@ def btc():
 def prime_page():
     name = None
     form = forms.prime_form()
+    count = None
+    mathops = None
 
     if form.validate_on_submit():
         name = form.name.data
         form.name.data = " "
         result = prime()
-        flash(result[1])
         flash("--------- ")
         flash(result[0])
-    return render_template('prime.html', name=name, form=form)
+        mathops = result[2]
+        count = result[3]
+    return render_template('prime.html', name=name, form=form, count=count, mathops = mathops)
 
 @app.route('/nft', methods=['GET', 'POST'])
 def nft():
