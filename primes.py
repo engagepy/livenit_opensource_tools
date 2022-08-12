@@ -17,17 +17,17 @@ def prime():
             flag = True
             pass
     if flag:
-      mes = f"{a} not Prime."
+      mes_not = f"{a} not Prime."
       list.append(mes)
       flag = None
       a += b
     else:
-      mes = f'{a} == PRIME.'
+      mes = f'{a} is ♚ |'
       count += 1
       list.append(mes)
       flag = None
       a += b
-  mes = f'{len(list)} Math Operations || {count} Prime found.'
+  mes = f'{len(list)} Math Operations || {count} Prime Numbers ♚'
   print(f'{len(list)} tests done')
   print('Running Prime')
   list = ( " ".join(list))

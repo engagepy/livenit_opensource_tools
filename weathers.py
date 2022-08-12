@@ -48,12 +48,31 @@ def weather(city):
    #print(f'formatted is {format} \n {format2} \n {format3} \n \n \n {formati}')
 
     data_refined = f'Current Weather -> {city}'
-    moon_phase_tom = f'Next Moon Phase = {moon_phase}' 
+  
+    if moon_phase == 0 or moon_phase == 1:
+      moon_phase_tom = f'Next Moon Phase = {moon_phase} - New Moon'
+      
+    elif moon_phase > 0 and moon_phase < 0.25:
+      moon_phase_tom = f'Next Moon Phase = {moon_phase} is Waxing Crescent'
+    elif moon_phase > 0.25 and moon_phase < 0.5:
+      moon_phase_tom = f'Next Moon Phase = {moon_phase} is Waxing Gibious' 
+    elif moon_phase > 0.5 and moon_phase < 0.75:
+      moon_phase_tom = f'Next Moon Phase = {moon_phase} is Waning Gibious'
+    elif moon_phase > 0.75 and moon_phase < 1:
+      moon_phase_tom = f'Next Moon Phase = {moon_phase} is Waning Crescent'       
+      
+    elif moon_phase == 0.25:
+      moon_phase_tom = f'Next Moon Phase = {moon_phase} is First Quarter Moon'
+    elif moon_phase == 0.5:
+      moon_phase_tom = f'Next Moon Phase = {moon_phase} is Full Moon ​🌓​💑​🐺​'
+    elif moon_phase == 0.75:
+      moon_phase_tom = f'Next Moon Phase = {moon_phase} is Last Quarter'
+      
     data_refined_1 = f'Lat-Long:{lat_i} | {lng_i}' 
-    data_feels = f'Feels = {format_feels}°C'
-    data_vis = f'Vis = {vis}m'
-    data_wind = f'Wind = {wind} m/sec'
-    data_refined_2 = f'TimeZone : {formati}'
+    data_feels = f'Feels = {format_feels}°C 🌡'
+    data_vis = f'Vis = {vis}m 🔍'
+    data_wind = f'Wind = {wind} m/sec 🍃'
+    data_refined_2 = f'TimeZone : {formati} '
     data_refined_4 = f'Status = {format3}'
     gmtime = f'Greenwich Time = {gmt_time}'
 

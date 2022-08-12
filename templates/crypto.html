@@ -1,35 +1,31 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<style>
+h1 {color: white; text-align: center;}
+p { color: #14cff5; text-align: center;}
+div {color: white; text-align: center;}
+form {color: darkorange; text-align: center; width: 100%; textarea cols: "50"; }  
+</style>
 
-<div class="alert alert-primary" role="alert">
   <p>
   {% if name %}
-    <h3><strong>{{ name | upper}}</strong> Data Updated</h3>
-  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <div class="alert alert-primary" role="alert">
+ 
+         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+   <span aria-hidden="true">&times;</span>
+   </button>    
   {% for message in get_flashed_messages() %}
       <h3> {{message}} </h3>
+
   {%endfor%}
-   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-   <span aria-hidden="true">&times;</span>
-   </button>
+
   </div>
-  
+  <h3 align = center style = "color: #14cff5"><strong>{{ name | upper}}</strong> Data Updated</h3> <br>
+  <b style = " color:#14cff5 "><h6 align = "center"> Feedback : info@astratechz.com </h6></b> 
   {% else %}
-  <h3>Live BitCoin Updates</h3>
-</div>
+  <h3 align = center style = "color: #14cff5">Live BitCoin Updates</h3>      
 
-<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
-  
-  <symbol id="info-fill" fill="currentColor" viewBox="0 0 16 16">
-    <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
-    </symbol>
- 
-</svg>
-
-<div class="alert alert-primary d-flex align-items-left" role="alert">
-  <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info:"><use xlink:href="#info-fill"/></svg> &nbsp;
- <b>  
    
   <form method ="POST">
   {{ form.hidden_tag()}}
