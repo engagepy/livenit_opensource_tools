@@ -47,7 +47,7 @@ def weather(city):
   
    #print(f'formatted is {format} \n {format2} \n {format3} \n \n \n {formati}')
 
-    data_refined = f'Current Weather -> {city}'
+    data_refined = f'Current Weather -> {city.title()}'
   
     if moon_phase == 0 or moon_phase == 1:
       moon_phase_tom = f'Next Moon Phase = {moon_phase} - New Moon'

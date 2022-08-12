@@ -57,8 +57,8 @@ def coin(symbol):
     totalsupply = data[0]['totalSupply']
     timestamp = data[0]['timestamp']
     mes1 = f"{data_name} Market Capital Rank is {marketcaprank}"
-    mes2 = f"{data_name} in $ = {price[0:9]} per/{symbol}"
-    mes3 = f"Market Capitalization $ = {total_market_cap[0:20]}"
+    mes2 = f"{data_name} Price = {price[0:9]}$ per/{symbol}"
+    mes3 = f"Market Capitalization = {total_market_cap[0:20]}$"
     mes4 = f"Total Supply = {totalsupply}"
     mes5 = f" "
     mes6 = f"Timestamp: {timestamp[:19]} GMT"
