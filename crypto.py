@@ -1,8 +1,9 @@
 import datetime
+import requests
 
 def coin(symbol):
-
-    import requests
+    
+    
     # Get Token Valid for 24 Hours
     url = "https://bravenewcoin.p.rapidapi.com/oauth/token"
 
@@ -48,7 +49,7 @@ def coin(symbol):
                                 headers=headers,
                                 params=querystring)
     dic = response.json()
-    print(dic)
+    #print(dic)
     data = dic['content']
     price = str(data[0]['price'])
     marketcaprank = data[0]['marketCapRank']
@@ -62,7 +63,6 @@ def coin(symbol):
     mes4 = f"Total Supply = {totalsupply}"
     mes5 = f" "
     mes6 = f"Timestamp: {timestamp[:19]} GMT"
-
-    print(mes1, mes2, mes3, mes4, mes5, mes6)
-
+    #print(mes1, mes2, mes3, mes4, mes5, mes6)
+  
     return mes1, mes2, mes3, mes4, mes5, mes6

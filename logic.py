@@ -9,6 +9,8 @@ from crypto import coin
 from primes import prime
 from __main__ import app
 
+
+
 @app.route('/')
 def index():
     return render_template('landing.html')
@@ -123,7 +125,6 @@ def weathery():
 def btc():
     symbol = None
     form = forms.crypto_form()
-
     if form.validate_on_submit():
         symbol = form.name.data.strip()
         form.name.data = ''
@@ -134,6 +135,7 @@ def btc():
         flash(result[3])
         flash(result[4])
         flash(result[5])
+        print("btc_run")
     return render_template('crypto.html', symbol=symbol, form=form)
 
 @app.route('/prime', methods=['GET', 'POST'])
