@@ -23,15 +23,15 @@ def user():
     email = []
 
     if form.validate_on_submit():
-        name = form.name.data
+        name = form.name.data.strip()
         user.append(name)
         db["user"] += name
         form.name.data = ''
-        email_id = form.email.data
+        email_id = form.email.data.strip()
         email.append(email_id)
         db["email"] += email
         form.email.data = ''
-        passw = form.password.data
+        passw = form.password.data.strip()
         password.append(passw)
         db['password'] += password
         form.password.data = ''
@@ -44,7 +44,7 @@ def iss_page():
     form = forms.iss_form()
     if form.validate_on_submit():
         os.system('python iss.py')
-        name = form.name.data
+        name = form.name.data.strip()
         form.name.data = ''
         flash(iss.message())
     return render_template('iss.html', name=name, form=form)
@@ -84,9 +84,9 @@ def flight_page():
     form = forms.flight_form()
 
     if form.validate_on_submit():
-        departure = form.departure.data
+        departure = form.departure.data.strip()
         form.departure.data = ''
-        arrival = form.arrival.data
+        arrival = form.arrival.data.strip()
         form.arrival.data = ''
         x = flight_message(arrival, departure)
         flash(x[0])
@@ -104,7 +104,7 @@ def weathery():
     city = None
     form = forms.weather_form()
     if form.validate_on_submit():
-        city = form.city.data
+        city = form.city.data.strip()
         form.city.data = None
         x = weather(city)
         print(x)
@@ -125,7 +125,7 @@ def btc():
     form = forms.crypto_form()
 
     if form.validate_on_submit():
-        symbol = form.name.data
+        symbol = form.name.data.strip()
         form.name.data = ''
         result = coin(symbol)
         flash(result[0])
