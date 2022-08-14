@@ -126,8 +126,8 @@ def btc():
     symbol = None
     form = forms.crypto_form()
     if form.validate_on_submit():
-        symbol = form.name.data.strip()
-        form.name.data = ''
+        symbol = form.symbol.data.strip()
+        form.symbol.data = ''
         result = coin(symbol)
         flash(result[0])
         flash(result[1])

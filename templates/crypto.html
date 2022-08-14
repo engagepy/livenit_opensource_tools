@@ -35,9 +35,9 @@ form {color: darkorange; text-align: center; width: 100%; textarea cols: "50"; }
   {{ form.hidden_tag()}}
 
    
-  {{form.name.label(class="form-label")}}
+  {{form.symbol.label(class="form-label")}}
 
-  {{form.name(class="form-control")}} 
+  {{form.symbol(class="form-control")}} 
     {% for field, errors in form.errors.items() %}
     <small class="form-text text-muted ">
         {{ ', '.join(errors) }}

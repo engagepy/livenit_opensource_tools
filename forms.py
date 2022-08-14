@@ -25,7 +25,7 @@ class weather_form(FlaskForm):
 
 
 class crypto_form(FlaskForm):
-    name = StringField("Symbols Only (eg: btc, sol, eth )",
+    symbol = StringField("Symbols Only (eg: btc, sol, eth )",
                        validators=[DataRequired(), Length(max=5)])
     submit = SubmitField('Crypto Update!')
 
