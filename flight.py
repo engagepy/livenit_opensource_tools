@@ -32,6 +32,6 @@ def flight_message(arrival, departure):
 
 	print(min_prices)
 	print(dates)
-	mes1 = f"Prices in INR: {min_prices}"
-	mes2 = f"Corresponding Dates: {dates}"
+	#mes1 = f"Prices in INR: {min_prices}"
+	#mes2 = f"Corresponding Dates: {dates}"
 	return mes1, mes2
