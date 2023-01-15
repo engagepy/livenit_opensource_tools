@@ -26,8 +26,8 @@ def flight_message(arrival, departure):
 	for i in data:
 		min_prices += str(i["MinPrice"])
 		min_prices += " | "
-		bad_formate_date = i["OutboundLeg"]["DepartureDate"]
-		good_date = bad_formate_date[0:10]
+		bad_format_date = i["OutboundLeg"]["DepartureDate"]
+		good_date = bad_format_date[0:10]
 		dates += good_date + " | "
 
 	print(min_prices)
