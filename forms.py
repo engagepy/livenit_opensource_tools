@@ -56,6 +56,11 @@ class flight_form(FlaskForm):
                           validators=[DataRequired()])
     submit = SubmitField('Rates and Dates!')
 
+class airport_form(FlaskForm):
+    airport = StringField("Enter Airport Code: ",
+                            validators=[DataRequired()])
+    submit = SubmitField('Airport Data')
+
 
 class prime_form(FlaskForm):
     name = StringField("Your Name To Activate ! ", validators=[DataRequired()])

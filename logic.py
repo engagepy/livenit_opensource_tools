@@ -5,10 +5,10 @@ import forms
 from replit import db
 from weathers import weather
 from flight import flight_message
+from airport import airport_message
 from crypto import coin
 from primes import prime
 from __main__ import app
-
 
 
 @app.route('/')
@@ -40,6 +40,7 @@ def user():
         flash("Cool, you're signed up ")
     return render_template('user.html', name=name, form=form)
 
+
 @app.route('/iss', methods=['GET', 'POST'])
 def iss_page():
     name = None
@@ -50,6 +51,7 @@ def iss_page():
         form.name.data = ''
         flash(iss.message())
     return render_template('iss.html', name=name, form=form)
+
 
 @app.route('/tax', methods=['GET', 'POST'])
 def tax_page():
@@ -77,7 +79,28 @@ def tax_page():
                            pre_tax=round(pre_tax, 2),
                            tax_amount=round(tax_amount, 2),
                            form=form)
-  
+
+
+@app.route('/flight', methods=['GET', 'POST'])
+def airport_page():
+    airport = None
+
+    form = forms.airport_form()
+
+    if form.validate_on_submit():
+        airport = form.airport.data.strip()
+        form.airport.data = ''
+        x = airport_message(airport)
+        flash(x['name'])
+        flash(x['city'])
+        flash(x['country'])
+        flash(x['phone'])
+        flash(x['website'])
+        flash(x['icao'])
+              
+    return render_template('airport.html', airport=airport, form=form)
+
+      
 @app.route('/flight', methods=['GET', 'POST'])
 def flight_page():
     arrival = None
@@ -100,6 +123,7 @@ def flight_page():
                            departure=departure,
                            form=form)
 
+
 @app.route('/weathers', methods=['GET', 'POST'])
 def weathery():
 
@@ -111,15 +135,15 @@ def weathery():
         x = weather(city)
         print(x)
         for i in x[0:]:
-          flash(i)
+            flash(i)
         #flash(x)[0]
         #flash(x)[1]
-        
 
 
 #os.system("python iss.py")
 #iss.send_msg(number)
     return render_template('weather.html', city=city, form=form)
+
 
 @app.route('/crypto', methods=['GET', 'POST'])
 def btc():
@@ -138,6 +162,7 @@ def btc():
         print("btc_run")
     return render_template('crypto.html', symbol=symbol, form=form)
 
+
 @app.route('/prime', methods=['GET', 'POST'])
 def prime_page():
     name = None
@@ -153,13 +178,16 @@ def prime_page():
         flash(result[0])
         mathops = result[2]
         count = result[3]
-    return render_template('prime.html', name=name, form=form, count=count, mathops = mathops)
+    return render_template('prime.html',
+                           name=name,
+                           form=form,
+                           count=count,
+                           mathops=mathops)
 
 
 @app.route('/nft', methods=['GET', 'POST'])
 def nft():
     return render_template('nft.html')
-
 
 
 @app.route('/iti', methods=['GET', 'POST'])
@@ -168,7 +196,7 @@ def iti():
     room = None
     nights = 0
     pax = 0
-    kayak = 0 
+    kayak = 0
     scuba_shore = 0
     scuba_boat = 0
     transfer_hv_pb = 0
@@ -178,44 +206,43 @@ def iti():
 
     if form.validate_on_submit():
         room = form.room.data
-        
+
         form.room.data = None
-      
+
         nights = form.nights.data
-        
+
         form.nights.data = 0
-      
+
         kayak = form.kayak.data
-        
+
         form.kayak.data = 0
-      
+
         scuba_shore = form.scuba_shore.data
-        
+
         form.scuba_shore.data = 0
-      
+
         scuba_boat = form.scuba_boat.data
-        
+
         form.scuba_boat.data = 0
-      
+
         transfer_hv_pb = form.transfer_hv_pb.data
-        
+
         form.transfer_hv_pb.data = 0
 
         pax = form.pax.data
-        
+
         form.pax.data = 0
 
-        total_net = (room * nights) + (kayak * pax) + (kayak * pax) + (scuba_shore * pax) + (scuba_boat * pax) + (transfer_hv_pb * pax)
-      
- 
-        total = total_net + (total_net * .25 )
+        total_net = (room * nights) + (kayak * pax) + (kayak * pax) + (
+            scuba_shore * pax) + (scuba_boat * pax) + (transfer_hv_pb * pax)
+
+        total = total_net + (total_net * .25)
         commision = (total_net * .25)
 
         flash("")
 
-
     return render_template('iti_test.html',
                            total=total,
                            commision=commision,
-                           form=form,room=room)
-      
+                           form=form,
+                           room=room)
