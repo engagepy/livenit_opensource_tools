@@ -5,7 +5,7 @@ def prime():
   list = []
   list_notprime = []
   count = 0
-  while a != 11094:
+  while a != 5059:
  
     if a == 1:
       flag = False
@@ -23,13 +23,13 @@ def prime():
       flag = None
       a += 1
     else:
-      mes = f'{a} is ♚ |'
+      mes = f'{a} -'
       count += 1
       list.append(mes)
       flag = None
       a += 1
   mathops = len(list) + len(list_notprime)
-  mes = f'{mathops} Math Operations || {count} Prime Numbers ♚'
+  mes = f'{mathops} Math Operations || {count} Prime Numbers Detected'
   print(f'{mathops} tests done')
   print('Running Prime')
   list = ( " ".join(list))

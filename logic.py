@@ -201,7 +201,7 @@ def prime_page():
         name = form.name.data
         form.name.data = " "
         result = prime()
-        flash("--------- ")
+      
         flash(result[0])
         mathops = result[2]
         count = result[3]
@@ -217,59 +217,3 @@ def nft():
     return render_template('nft.html')
 
 
-@app.route('/iti', methods=['GET', 'POST'])
-def iti():
-    form = forms.iti_form()
-    room = None
-    nights = 0
-    pax = 0
-    kayak = 0
-    scuba_shore = 0
-    scuba_boat = 0
-    transfer_hv_pb = 0
-    total = 0
-    commision = 0
-    total_net = 0
-
-    if form.validate_on_submit():
-        room = form.room.data
-
-        form.room.data = None
-
-        nights = form.nights.data
-
-        form.nights.data = 0
-
-        kayak = form.kayak.data
-
-        form.kayak.data = 0
-
-        scuba_shore = form.scuba_shore.data
-
-        form.scuba_shore.data = 0
-
-        scuba_boat = form.scuba_boat.data
-
-        form.scuba_boat.data = 0
-
-        transfer_hv_pb = form.transfer_hv_pb.data
-
-        form.transfer_hv_pb.data = 0
-
-        pax = form.pax.data
-
-        form.pax.data = 0
-
-        total_net = (room * nights) + (kayak * pax) + (kayak * pax) + (
-            scuba_shore * pax) + (scuba_boat * pax) + (transfer_hv_pb * pax)
-
-        total = total_net + (total_net * .25)
-        commision = (total_net * .25)
-
-        flash("")
-
-    return render_template('iti_test.html',
-                           total=total,
-                           commision=commision,
-                           form=form,
-                           room=room)

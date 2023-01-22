@@ -1,24 +1,34 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="alert alert-primary" role="alert">
+<style>
+h1 {color: white; text-align: center;}
+p { color: #14cff5; text-align: center;}
+div {color: white; text-align: left;}
+form {color: darkorange; text-align: center; width: 100%; textarea cols: "50"; }  
+</style>
+
   <p>
   {% if name %}
-    <div class="alert alert-danger alert-dismissible fade show" role="alert" align = "center">
-      {% for message in get_flashed_messages() %}
-      {{message}} {{name | title}}
-      {%endfor%}
+
+    <div class="alert alert-primary" role="alert">
       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true">&times;</span></button></div>
-        <h3 align = "center">Explore Our Tools 👆 </h3>
-        <br>
-        <h4 align = "center">Cool Stuff Awaits 🛸</h4>
-{% else %}
-      <h1 align = center> The Community: </h1>
-      <h4 align = center><strong> Tech, Tools & Fun </strong> </h4>
+   <span aria-hidden="true">&times;</span>
+   </button>
+
+  {% for message in get_flashed_messages() %}
+      <h3> {{message}} </h3>
+  {%endfor%}
+ 
   </div>
+  
+  {% else %}
+    <h1 align = center style = "color: #eb6c0c"><strong >Liven-IT</strong></h1><h1 align = center style = "color: whitesmoke"> Community</h1> <br>
 
-  <div class="alert alert-primary d-flex align-items-center" role="alert">
+<div class="alert bg-dark" role="alert">
 
+  <hr>
+   
+  
   <form method ="POST" >
     {{ form.hidden_tag()}}
     {{form.name.label(class="form-label")}}
@@ -29,9 +39,9 @@
   <p></p>
     {{form.submit(class="btn btn-outline-info")}}
   </form> </b>
-{% endif %}
-
-    </p>
-    <hr>
+  {% endif %}  
+  </br>
+  </p>
+  <hr>
 </div>
 {% endblock %}
