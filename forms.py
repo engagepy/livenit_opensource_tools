@@ -65,3 +65,7 @@ class airport_form(FlaskForm):
 class prime_form(FlaskForm):
     name = StringField("Your Name To Activate ! ", validators=[DataRequired()])
     submit = SubmitField('Activate Prime Sequence')
+
+class reverse_form(FlaskForm):
+    name = StringField("Paste Text Here ", validators=[DataRequired()])
+    submit = SubmitField('Analyse Text')

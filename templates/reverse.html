@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+h1 {color: white; text-align: center;}
+p { color: #14cff5; text-align: center;}
+div {color: white; text-align: center;}
+form {color: darkorange; text-align: center; width: 100%; textarea cols: "50"; }  
+</style>
+
+  <p>
+  {% if name %}
+     <h6 align = center style = "color: #14cff5">{{ name}}</h1> <br>
+
+    <hr>
+    <div class="alert alert-primary" role="alert">
+    
+
+  {% for message in get_flashed_messages() %}
+      <h3> {{message}} </h3>
+  {%endfor%}
+   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+   <span aria-hidden="true">&times;</span>
+   </button>
+  </div>
+  
+  {% else %}
+    <h3 align = center style = "color: #14cff5">Text Analysis Tool v1.0</h3> <br>
+
+<div class="alert bg-dark" role="alert">
+
+  <hr>
+   
+  <form method ="POST">
+  {{ form.hidden_tag()}}
+  {{form.name.label(class="form-label")}}
+    
+  {{form.name(class="form-control")}}
+  <p></p>
+  {{form.submit(class="btn btn-outline-info")}}
+  </form>  
+  </b> 
+  {% endif %}  
+  </br>
+  </p>
+  <hr>
+</div>
+
+
+{% endblock %}

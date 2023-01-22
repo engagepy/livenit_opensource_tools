@@ -8,6 +8,7 @@ from flight import flight_message
 from airport import airport_message
 from crypto import coin
 from primes import prime
+from reverse import reverse, NonAlphanumeric
 from __main__ import app
 
 
@@ -97,10 +98,10 @@ def airport_page():
         flash(x['phone'])
         flash(x['website'])
         flash(x['icao'])
-              
+
     return render_template('airport.html', airport=airport, form=form)
 
-      
+
 @app.route('/flight', methods=['GET', 'POST'])
 def flight_page():
     arrival = None
@@ -161,6 +162,36 @@ def btc():
         flash(result[5])
         print("btc_run")
     return render_template('crypto.html', symbol=symbol, form=form)
+
+
+@app.route('/reverse', methods=['GET', 'POST'])
+def reverse_page():
+    name = None
+    form = forms.reverse_form()
+
+    if form.validate_on_submit():
+        name = form.name.data
+        form.name.data = " "
+        result = reverse(name)
+        alpha_num = NonAlphanumeric(name)
+      
+        flash("--------- ")
+        alpha = f"Text contains Alphabets = {result[0]}"
+        digit = f"Text contains Digits = {result[1]}"
+        upper = f"Text contains Upper Case = {result[2]}"
+        lower = f"Text contains Lower Case = {result[3]}"
+        num = f"Number of Alpha Numeric Characters Used = {alpha_num[0]}"
+        char = f"Number of Alpha Numeric Characters Used = {alpha_num[1]}"
+        flash(alpha)
+        flash(digit)
+        flash(upper)
+        flash(lower)
+        flash(num)
+        flash(char)
+    return render_template('reverse.html',
+                           name=name,
+                           form=form,
+                           )
 
 
 @app.route('/prime', methods=['GET', 'POST'])
