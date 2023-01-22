@@ -7,8 +7,6 @@ from wtforms.validators import DataRequired, Email, Length
 class first_user_form(FlaskForm):
     name = StringField('Full Name', validators=[DataRequired()])
     email = EmailField('Email Address', validators=[DataRequired(), Email()])
-    password = PasswordField('Password', validators=[DataRequired()])
-    remember_me = BooleanField('Remember me')
     submit = SubmitField('Submit !')
 
 
@@ -67,5 +65,5 @@ class prime_form(FlaskForm):
     submit = SubmitField('Activate Prime Sequence')
 
 class reverse_form(FlaskForm):
-    name = StringField("Paste Text Here ", validators=[DataRequired()])
-    submit = SubmitField('Analyse Text')
+    name = StringField("Paste Text/Code Here ", validators=[DataRequired()])
+    submit = SubmitField('Analyse')

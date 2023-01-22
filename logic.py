@@ -8,7 +8,7 @@ from flight import flight_message
 from airport import airport_message
 from crypto import coin
 from primes import prime
-from reverse import reverse, NonAlphanumeric
+from analysis import reverse, NonAlphanumeric
 from __main__ import app
 
 
@@ -21,23 +21,16 @@ def index():
 def user():
     name = None
     form = forms.first_user_form()
-    user = []
-    password = []
-    email = []
+
 
     if form.validate_on_submit():
-        name = form.name.data.strip()
-        user.append(name)
+        name = form.name.data
+    
         db["user"] += name
         form.name.data = ''
-        email_id = form.email.data.strip()
-        email.append(email_id)
-        db["email"] += email
+        email_id = form.email.data
+        db["email"] += email_id
         form.email.data = ''
-        passw = form.password.data.strip()
-        password.append(passw)
-        db['password'] += password
-        form.password.data = ''
         flash("Cool, you're signed up ")
     return render_template('user.html', name=name, form=form)
 
@@ -164,7 +157,7 @@ def btc():
     return render_template('crypto.html', symbol=symbol, form=form)
 
 
-@app.route('/reverse', methods=['GET', 'POST'])
+@app.route('/analysis', methods=['GET', 'POST'])
 def reverse_page():
     name = None
     form = forms.reverse_form()
@@ -173,20 +166,23 @@ def reverse_page():
         name = form.name.data
         form.name.data = " "
         result = reverse(name)
-        alpha_num = NonAlphanumeric(name)
+        alpha_num = NonAlphanumeric(name, result[5])
       
-        flash("--------- ")
-        alpha = f"Text contains Alphabets = {result[0]}"
-        digit = f"Text contains Digits = {result[1]}"
-        upper = f"Text contains Upper Case = {result[2]}"
-        lower = f"Text contains Lower Case = {result[3]}"
-        num = f"Number of Alpha Numeric Characters Used = {alpha_num[0]}"
-        char = f"Number of Alpha Numeric Characters Used = {alpha_num[1]}"
+        alpha = f"Alphabets: {result[0]}"
+        digit = f"Digits: {result[1]}"
+        upper = f"UPPER: {result[2]}"
+        lower = f"lower: {result[3]}"
+        num = f"Special: {alpha_num[0][0]}"
+        space = f"Spaces Used: {result[4]}"
+        total = f"Character Count: {alpha_num[3]}"
+        char = f"Special Types {alpha_num[2]}"
         flash(alpha)
+        flash(space)
         flash(digit)
         flash(upper)
         flash(lower)
         flash(num)
+        flash(total)
         flash(char)
     return render_template('reverse.html',
                            name=name,

@@ -15,18 +15,20 @@
         Realtime Tools
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          
+          <a class="dropdown-item" href="{{ url_for('airport_page')}}">Airport Data</a>          
 
-
+          <div class="dropdown-divider"></div>
+          
+          <a class="dropdown-item" href="{{ url_for('reverse_page')}}">Analyse Text</a> 
+          
+          <div class="dropdown-divider"></div>          
+          
           <a class="dropdown-item" href="{{ url_for('btc')}}">Crypto Update</a>
-          
 
           <div class="dropdown-divider"></div>
           
-          <a class="dropdown-item" href="{{ url_for('weathery')}}">Weather Precision</a>
-
-          <div class="dropdown-divider"></div>
-          
-          <a class="dropdown-item" href="{{ url_for('tax_page')}}">Reverse Tax</a>
+          <a class="dropdown-item" href="{{ url_for('nft')}}">NFT Demo</a>
           
           <div class="dropdown-divider"></div>
           
@@ -34,15 +36,18 @@
 
           <div class="dropdown-divider"></div>
           
-          <a class="dropdown-item" href="{{ url_for('nft')}}">NFT Demo</a>
-
+          <a class="dropdown-item" href="{{ url_for('tax_page')}}">Reverse Tax</a>          
+          
           <div class="dropdown-divider"></div>
           
-          <a class="dropdown-item" href="{{ url_for('airport_page')}}">Airport Data</a>          
+          <a class="dropdown-item" href="{{ url_for('weathery')}}">Weather Precision</a>
 
-          <div class="dropdown-divider"></div>
           
-          <a class="dropdown-item" href="{{ url_for('reverse_page')}}">Analyse Text</a> 
+
+
+
+
+
           
           <!div class="dropdown-divider"><!/div>
           <!a class="dropdown-item" href="#"></a> 
