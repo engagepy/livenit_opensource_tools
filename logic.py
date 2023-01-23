@@ -170,17 +170,17 @@ def reverse_page():
       
         alpha = f"Alphabets: {result[0]}"
         digit = f"Digits: {result[1]}"
-        upper = f"UPPER: {result[2]}"
-        lower = f"lower: {result[3]}"
+        upper = f"Uppercase: {result[2]}"
+        lower = f"lowercase: {result[3]}"
         num = f"Special: {alpha_num[0][0]}"
         space = f"Spaces Used: {result[4]}"
         total = f"Character Count: {alpha_num[3]}"
-        char = f"Special Types {alpha_num[2]}"
+        char = f"Unique Special Types {alpha_num[2]}"
         flash(alpha)
-        flash(space)
-        flash(digit)
         flash(upper)
         flash(lower)
+        flash(space)
+        flash(digit)
         flash(num)
         flash(total)
         flash(char)

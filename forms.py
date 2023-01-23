@@ -33,18 +33,6 @@ class tax_form(FlaskForm):
                        validators=[DataRequired()])
     tax = FloatField("Enter %: ", validators=[DataRequired()])
     submit = SubmitField('Calculate!')
-
-
-class iti_form(FlaskForm):
-    room = FloatField("Rooms Cost Avg ",
-                       validators=[DataRequired()])
-    nights = FloatField("Stay Nights Exact ", validators=[DataRequired()])
-    pax = FloatField("Total Pax Count", validators=[DataRequired()])
-    scuba_boat = FloatField("Scuba Boat Cost")
-    scuba_shore = FloatField("Scuba Shore Cost")
-    kayak = FloatField('Kayaking Cost')
-    transfer_hv_pb = FloatField('Transfer Cost')
-    submit = SubmitField('Calculate!')
     
 
 class flight_form(FlaskForm):
