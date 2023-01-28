@@ -47,6 +47,11 @@ class airport_form(FlaskForm):
                             validators=[DataRequired()])
     submit = SubmitField('Airport Data')
 
+class superhero_form(FlaskForm):
+  superhero = StringField("Enter Superhero Name / Real Name of Hero",
+                            validators=[DataRequired()])
+  submit = SubmitField('Super Fetch')
+
 
 class prime_form(FlaskForm):
     name = StringField("Your Name To Activate ! ", validators=[DataRequired()])

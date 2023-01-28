@@ -4,11 +4,11 @@ from flask import render_template, flash
 import forms
 from replit import db
 from weathers import weather
-from flight import flight_message
 from airport import airport_message
 from crypto import coin
 from primes import prime
 from analysis import reverse, NonAlphanumeric
+from superhero import superhero
 from __main__ import app
 
 
@@ -95,27 +95,6 @@ def airport_page():
     return render_template('airport.html', airport=airport, form=form)
 
 
-@app.route('/flight', methods=['GET', 'POST'])
-def flight_page():
-    arrival = None
-    departure = None
-
-    form = forms.flight_form()
-
-    if form.validate_on_submit():
-        departure = form.departure.data.strip()
-        form.departure.data = ''
-        arrival = form.arrival.data.strip()
-        form.arrival.data = ''
-        x = flight_message(arrival, departure)
-        flash(x[0])
-        flash(x[1])
-        #os.system("python iss.py")
-        #iss.send_msg(number)
-    return render_template('flights.html',
-                           arrival=arrival,
-                           departure=departure,
-                           form=form)
 
 
 @app.route('/weathers', methods=['GET', 'POST'])
@@ -130,12 +109,7 @@ def weathery():
         print(x)
         for i in x[0:]:
             flash(i)
-        #flash(x)[0]
-        #flash(x)[1]
 
-
-#os.system("python iss.py")
-#iss.send_msg(number)
     return render_template('weather.html', city=city, form=form)
 
 
@@ -217,3 +191,29 @@ def nft():
     return render_template('nft.html')
 
 
+@app.route('/superhero', methods=['GET', 'POST'])
+def superhero_page():
+    name = None
+    form = forms.superhero_form()
+
+    if form.validate_on_submit():
+        name = form.superhero.data
+        form.superhero.data = " "
+        data = superhero(name)
+        n = data['name']
+        a = data['powerstats']
+        intelligence = f"Intelligence: {a['intelligence']}"
+        strength = f"Strength: {a['strength']}"
+        speed = f"Speed: {a['speed']}"
+        durability = f"Durablity: {a['durability']}"
+        power = f"Power: {a['power']}"
+        combat = f"Combat: {a['combat']}"
+        flash(n)
+        flash(intelligence)
+        flash(strength)
+        flash(speed,durability)
+        flash(power)
+        flash(combat)
+        
+
+    return render_template('superhero.html', name=name, form=form)
