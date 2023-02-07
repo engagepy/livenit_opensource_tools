@@ -1,6 +1,7 @@
 import openai
 
-openai.api_key = "YOUR_OPENAI_API_KEY"
+openai.api_key = "<API_KEY_HERE>"
+
 
 def generate():
     prompt = request.form['prompt']
