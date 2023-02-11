@@ -1,5 +1,7 @@
 import openai
 
+# Awaiting access and full fledged development roadmap
+
 openai.api_key = "<API_KEY_HERE>"
 
 
