@@ -9,6 +9,7 @@ from crypto import coin
 from primes import prime
 from analysis import reverse, NonAlphanumeric
 from superhero import superhero
+from gpt import generate
 from __main__ import app
 
 
@@ -17,15 +18,27 @@ def index():
     return render_template('landing.html')
 
 
+@app.route('/gpt', methods=['GET', 'POST'])
+def gpt():
+    name = None
+    form = forms.gpt_form()
+
+    if form.validate_on_submit():
+        name = form.name.data
+        form.name.data = ''
+        x = str(generate(name))
+        flash(x)
+    return render_template('gpt.html', name=name, form=form)
+
+
 @app.route('/community', methods=['GET', 'POST'])
 def user():
     name = None
     form = forms.first_user_form()
 
-
     if form.validate_on_submit():
         name = form.name.data
-    
+
         db["user"] += name
         form.name.data = ''
         email_id = form.email.data
@@ -95,8 +108,6 @@ def airport_page():
     return render_template('airport.html', airport=airport, form=form)
 
 
-
-
 @app.route('/weathers', methods=['GET', 'POST'])
 def weathery():
 
@@ -141,7 +152,7 @@ def reverse_page():
         form.name.data = " "
         result = reverse(name)
         alpha_num = NonAlphanumeric(name, result[5])
-      
+
         alpha = f"Alphabets: {result[0]}"
         digit = f"Digits: {result[1]}"
         upper = f"Uppercase: {result[2]}"
@@ -158,10 +169,11 @@ def reverse_page():
         flash(num)
         flash(total)
         flash(char)
-    return render_template('reverse.html',
-                           name=name,
-                           form=form,
-                           )
+    return render_template(
+        'reverse.html',
+        name=name,
+        form=form,
+    )
 
 
 @app.route('/prime', methods=['GET', 'POST'])
@@ -175,7 +187,7 @@ def prime_page():
         name = form.name.data
         form.name.data = " "
         result = prime()
-      
+
         flash(result[0])
         mathops = result[2]
         count = result[3]
@@ -211,9 +223,8 @@ def superhero_page():
         flash(n)
         flash(intelligence)
         flash(strength)
-        flash(speed,durability)
+        flash(speed, durability)
         flash(power)
         flash(combat)
-        
 
     return render_template('superhero.html', name=name, form=form)

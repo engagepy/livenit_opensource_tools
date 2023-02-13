@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+h1 {color: white; text-align: center;}
+p { color: #14cff5; text-align: center;}
+div {color: white; text-align: center;}
+form {color: darkorange; text-align: center; width: 100%; textarea cols: "50"; }  
+</style>
+
+
+
+  <p>
+  {% if not name %} 
+    
+<div class="alert bg-dark" role="alert">
+
+  <hr>
+  
+ 
+    <h1 align = center style = "color: #14cff5">AI Search - Anything</h1>     
+  <br>
+  
+
+   
+  <form method ="POST" >
+    {{ form.hidden_tag()}}
+
+    {{form.name.label(class="form-label")}}
+
+    {{form.name(class="form-control")}}
+
+    <p></p>
+
+    {{form.submit(class="btn btn-outline-info")}}
+
+
+  </form>  </b>
+  
+  
+  </br>
+
+  <h7 align = center style = "color: white">Maximum Response = 256 characters</h7>
+  <br><br>
+  <a href="https://www.buymeacoffee.com/zorawar" target="_blank" rel="noopener"> <h7 align = center style = "color: orange"> Buy Me A Coffee </h7> </a>
+  <br>
+  <img src= "{{url_for('static', filename='bmc_qr.png')}}" width="111" height="111" />
+  <br>
+    <br>
+  <h7 align = center style = "color: white"><strong>Search Examples: </strong> <br>‣ largest diamond in the world give me its brief history, <br>‣ write me a tweet on trending HR policies of 2023,<br>‣ list fish and corals found in Andaman sea </h7>
+  <br>
+</p>
+
+  <hr>
+</div>
+
+{% else %}
+
+
+   
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+    {% for message in get_flashed_messages() %}
+      <h4>
+       {{message}} 
+       </h4>
+    {%endfor%}
+  
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+  <span aria-hidden="true">&times;</span>
+  </button></div>
+
+  
+  <div class="alert bg-dark" role="alert">
+
+  <hr>
+    <h1 align = center style = "color: #14cff5">AI Search - Anything</h1>     
+  <br>
+  <br>
+   
+  <form method ="POST">
+    {{ form.hidden_tag()}}
+
+    {{form.name.label(class="form-label")}}
+
+    {{form.name(class="form-control")}}
+
+    <p></p>
+
+    {{form.submit(class="btn btn-outline-info")}}
+
+
+  </form>  </b>
+  
+  
+  </br>
+        <h7 align = center style = "color: white">Maximum Response = 256 characters</h7>
+  <br><br>
+  <a href="https://www.buymeacoffee.com/zorawar" target="_blank" rel="noopener"> <h7 align = center style = "color: orange"> Buy Me A Coffee </h7> </a>
+  <br>
+  <img src= "{{url_for('static', filename='bmc_qr.png')}}" width="111" height="111" />
+  <br>
+    <br>
+  <h7 align = center style = "color: white"><strong>Search Examples: </strong> <br>‣ largest diamond in the world give me its brief history, <br>‣ write me a tweet on trending HR policies of 2023,<br>‣ list fish and corals found in Andaman sea </h7>
+  <br>
+</p>
+
+  <hr>
+</div>
+
+
+{% endif %}
+
+
+
+  
+
+
+
+
+{% endblock %}
+
