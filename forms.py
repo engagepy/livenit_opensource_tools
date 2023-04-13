@@ -13,7 +13,7 @@ class first_user_form(FlaskForm):
 class gpt_form(FlaskForm):
     name = StringField(
         '',
-        validators=[DataRequired(), Length(5,256)])
+        validators=[DataRequired(), Length(5,280)])
     submit = SubmitField('aiSearch')
 
 
