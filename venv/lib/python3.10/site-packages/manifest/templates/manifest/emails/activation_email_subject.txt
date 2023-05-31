@@ -1,0 +1,1 @@
+{% blocktrans with site.name as site %}You have registered at {{ site }} website{% endblocktrans %}

@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+ <style>
+h1 {color: white; text-align: center;}
+p { color: #14cff5; text-align: center;}
+div {color: white; text-align: left;}
+form {color: darkorange; text-align: center; width: 100%; textarea cols: "50"; }  
+</style>
+
+  <p>
+  {% if airport %}
+
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+   <span aria-hidden="true">&times;</span>
+   </button>
+
+  {% for message in get_flashed_messages() %}
+      <h3> {{message}} </h3>
+  {%endfor%}
+ 
+  </div>
+     <p> <h3>
+    
+      <b style = " color:#14cff5 "> <h3 align = "center"> Airport Data Updated via RapidAPI</h3></b> <br>
+      <b style = " color:#14cff5 "><h6 align = "center"> Feedback : info@astratechz.com </h6></b> 
+    
+  </h3></p>
+  
+  <br>
+
+  {% else %}
+    <h1 align = center style = "color: #14cff5">Get Airport Details, Contact and Website ! [eg: Del - CCU - ixz]</h1> <br>
+
+<div class="alert bg-dark" role="alert">
+
+  <hr>
+  <form method ="POST">
+    {{ form.hidden_tag()}}
+
+    {{form.airport.label(class="form-label")}}
+
+    {{form.airport(class="form-control")}}
+
+
+
+     <p></p>
+
+    {{form.submit(class="btn btn-outline-info")}}
+
+
+  </form>  </b>
+  
+  {% endif %}
+    <h3></h3>
+ 
+   
+
+
+
+  </br>
+  </p>
+  <hr>
+</div>
+
+
+{% endblock%}

@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+h1 {color: white; text-align: center;}
+p { color: #14cff5; text-align: center;}
+div {color: white; text-align: left;}
+form {color: darkorange; text-align: center; width: 100%; textarea cols: "50"; }  
+</style>
+
+  <p>
+  {% if name %}
+
+    <div class="alert alert-primary" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+   <span aria-hidden="true">&times;</span>
+   </button>
+
+  {% for message in get_flashed_messages() %}
+      <h3> {{message}} </h3>
+  {%endfor%}
+ 
+  </div>
+  
+  {% else %}
+    <h1 align = center style = "color: #eb6c0c"><strong >Liven-IT</strong></h1><h1 align = center style = "color: whitesmoke"> Community</h1> <br>
+
+<div class="alert bg-dark" role="alert">
+
+  <hr>
+   
+  
+  <form method ="POST" >
+    {{ form.hidden_tag()}}
+    {{form.name.label(class="form-label")}}
+    {{form.name(class="form-control")}}
+    {{form.email.label(class="form-label")}}
+    {{form.email(class="form-control")}}
+
+  <p></p>
+    {{form.submit(class="btn btn-outline-info")}}
+  </form> </b>
+  {% endif %}  
+  </br>
+  </p>
+  <hr>
+</div>
+{% endblock %}

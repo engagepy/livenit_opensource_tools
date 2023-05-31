@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+h1 {color: white; text-align: center;}
+p { color: #14cff5; text-align: center;}
+div {color: white; text-align: center;}
+form {color: darkorange; text-align: center; width: 100%; textarea cols: "50"; }  
+</style>
+<br>
+    <h3 align = center style = "color: #14cff5">NFT Art - Protected by IPFS & BLOCKCHAIN.</h3> <h5 align = center style = "color: red"> Will only load if a 'Crypto Wallet' is associated with browser</h5>
+<h6></h6>
+<br> 
+
+<hr>
+
+<div class=iframe align = center>
+<iframe
+src="https://gateway.ipfscdn.io/ipfs/QmWadjbCefyTnh8DMNBJyvZiVhXmFvrFbKzYqzY7WAGEHf/marketplace.html?contract=0x1425fa2E847E37674B7a8755003237e565852694&chainId=137&listingId=0"
+width="600px"
+height="600px"
+style="max-width:100%;"
+frameborder="0"
+></iframe>
+</div>
+
+{% endblock %}
