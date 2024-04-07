@@ -1,94 +1,49 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark" >
-  <a class="navbar-brand" href="{{url_for('index')}}" style = "color : #eb6c0c"><strong >Liven-IT</strong></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<a class="navbar-brand" href="{{ url_for('index') }}" style="color: #eb6c0c"><strong>Liven-IT</strong></a>
+
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      
       <li class="nav-item">
         <a class="nav-link" href="{{ url_for('user')}}">Community</a>
       </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Realtime Tools
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-
-          
-          
-          <a class="dropdown-item" href="{{ url_for('gpt')}}">AI Search</a>
-
-          <div class="dropdown-divider"></div>
-          
-          <a class="dropdown-item" href="{{ url_for('airport_page')}}">Airport Data</a>          
-
-          <div class="dropdown-divider"></div>
-          
-          <a class="dropdown-item" href="{{ url_for('reverse_page')}}">Analyse Text</a> 
-          
-          <div class="dropdown-divider"></div>          
-          
-          <!a class="dropdown-item" href="{{ url_for('btc')}}">Crypto Update<!/a>
-
-          <!div class="dropdown-divider"><!/div>
-          
-          <a class="dropdown-item" href="{{ url_for('nft')}}">NFT Demo</a>
-          
-          <div class="dropdown-divider"></div>
-          
-          <a class="dropdown-item" href="{{ url_for('prime_page')}}">Prime Finder </a>
-
-          <div class="dropdown-divider"></div>
-          
-          <a class="dropdown-item" href="{{ url_for('tax_page')}}">Reverse Tax</a>          
-
-          <div class="dropdown-divider"></div>
-          
-          <a class="dropdown-item" href="{{ url_for('superhero_page')}}">Superhero Data</a>
-          
-          <div class="dropdown-divider"></div>
-          
-          <a class="dropdown-item" href="{{ url_for('weathery')}}">Weather Precision</a>
-
-          
-
-
-
-
-
-          
-          <!div class="dropdown-divider"><!/div>
-          <!a class="dropdown-item" href="#"></a> 
-          
-
-
-        
-
-
-
-
-          
-          <!div class="dropdown-divider"><!/div>
-          <!a class="dropdown-item" href="#"></a>
-     
-         
-          <!div class="dropdown-divider"><!/div>
-          <!a class="dropdown-item" href="#"></a>
-
-
-        
-        </div>
-      </li>
-
- 
-      <li class="nav-item">
-        
-        <a class="nav-link disabled" href="#">#prototype</a>
-      </li>
     </ul>
   </div>
+  <!-- Back arrow (conditionally rendered) -->
+  {% if request.endpoint != 'index' %}
+    <a href="{{ url_for('index') }}" class="back-arrow" aria-label="Back to Home">
+      <style>
+        .bi-arrow-left {
+          filter: drop-shadow(0 0 5px white); /* Adds a glow effect */
+          transition: filter 0.3s ease-in-out; /* Smooth transition for hover effect */
+        }
 
+        .bi-arrow-left:hover {
+          filter: drop-shadow(0 0 10px white); /* Increase glow when hovering */
+        }
+      </style>
+
+      <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" class="bi bi-arrow-left" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M15 8a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 0 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 0 1 .708 0l3.147 3.146H14.5a.5.5 0 0 1 .5.5z"/>
+      </svg>
+    </a>
+  {% endif %}
+
+  <style>
+    .back-arrow {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      padding-top: 25px;
+      transform: translateY(-50%);
+    }
+    @media (max-width: 991px) {
+      .back-arrow {
+        position: fixed;
+        right: 10px;
+        top: 10px;
+      }
+    }
+  </style>
   
 </nav>

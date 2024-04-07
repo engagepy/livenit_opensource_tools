@@ -27,6 +27,45 @@
     text-decoration: none;
     background-color: #333; /* Darker box backgrounds for contrast */
     border: 1px solid #eb6c0c; /* Subtle orange border */
+    overflow: hidden; /* Hide overflow for pseudo element */
+    position: relative; /* Needed for absolute positioning of pseudo element */
+    transition: all 0.3s ease; /* Smooth transition for hover effect */
+    z-index: 1;
+  }
+
+  /* Description appearing on hover */
+  .tool-box a::after {
+    content: attr(data-description); /* Use data attribute for description */
+    position: absolute;
+    left: 0;
+    top: 100%; /* Start from the bottom */
+    width: 100%;
+    color: #ffffff; /* Description text color */
+    background-color: rgba(35, 39, 42, 0.9); /* Slightly transparent background */
+    font-size: 0.8em; /* Smaller font size for description */
+    padding: 15px;
+    border-radius: 0 0 15px 15px; /* Rounded corners */
+    opacity: 0; /* Initially transparent */
+    transform: translateY(-10px); /* Start a bit above */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth transition for hover effect */
+    z-index: -1;
+    box-sizing: border-box; /* Include padding and border in the width and height */
+  }
+
+  .tool-box a:hover, .tool-box a:focus {
+    transform: translateY(-5px); /* Move up on hover/focus */
+    background-color: #444; /* Slightly lighter background */
+  }
+
+  .tool-box a:hover::after, .tool-box a:focus::after {
+    opacity: 1; /* Make description visible */
+    transform: translateY(0); /* Align with the button bottom */
+  }
+
+  @media (max-width: 1024px) {
+    .tool-box {
+      grid-template-columns: repeat(2, 1fr); /* Two columns for medium screens */
+    }
   }
 
   @media (max-width: 767px) {
@@ -44,20 +83,20 @@
 <div class="container">
   <div class="alert bg-dark" role="alert">
     <hr>
-    <h1><strong style="color: #eb6c0c"></strong><strong style="color: #eb6c0c">I</strong>nfo<strong style="color: #eb6c0c">-T</strong>ech</h1> 
+    <h1><strong style="color: #eb6c0c">I</strong>nfo<strong style="color: #eb6c0c">-T</strong>ech</h1> 
     <br>
     <p><strong style="color:#14cff5">APIs & Functions Demo:</strong> Airport, Weather, Reverse Tax & more ..</p>
   </div>
 
   <div class="tool-box">
-    <a href="{{ url_for('gpt') }}">AI Search</a>
-    <a href="{{ url_for('airport_page') }}">Airport Data</a>
-    <a href="{{ url_for('reverse_page') }}">Analyse Text</a>
-    <a href="{{ url_for('nft') }}">NFT Demo</a>
-    <a href="{{ url_for('prime_page') }}">Prime Finder</a>
-    <a href="{{ url_for('tax_page') }}">Reverse Tax</a>
-    <a href="{{ url_for('superhero_page') }}">Superhero Data</a>
-    <a href="{{ url_for('weathery') }}">Weather Precision</a>
+    <a href="{{ url_for('gpt') }}" data-description="Leverage cutting-edge AI to search vast information landscapes.">AI Search</a>
+    <a href="{{ url_for('airport_page') }}" data-description="Real-time data access point for global flight and airport statistics.">Airport Data</a>
+    <a href="{{ url_for('reverse_page') }}" data-description="Dissect and analyse textual data with reverse engineering methods.">Analyse Text</a>
+    <a href="{{ url_for('nft') }}" data-description="Interactive showcase for NFT collections and smart contract interactions.">NFT Demo</a>
+    <a href="{{ url_for('prime_page') }}" data-description="Efficiently compute and identify prime numbers with optimized algorithms.">Prime Finder</a>
+    <a href="{{ url_for('tax_page') }}" data-description="Calculate tax implications with reverse calculations for financial clarity.">Reverse Tax</a>
+    <a href="{{ url_for('superhero_page') }}" data-description="Aggregate and correlate data for super-powered beings in a structured format.">Superhero Data</a>
+    <a href="{{ url_for('weathery') }}" data-description="Precision forecasting tool utilizing advanced meteorological data sets.">Weather Precision</a>
   </div>
 </div>
 

@@ -6,7 +6,27 @@
 h1 {color: white; text-align: center;}
 p { color: #14cff5; text-align: center;}
 div {color: white; text-align: left;}
-form {color: darkorange; text-align: center; width: 100%; textarea cols: "50"; }  
+   form {
+     color: darkorange;
+     text-align: center;
+     width: 100%;
+   }
+
+   .form-group { /* Style to add for grouping and alignment */
+     display: flex;
+     justify-content: center; /* Center the form group */
+   }
+
+   .form-control {
+     width: 50%; /* Medium size */
+     margin: auto; /* Center the input field */
+   }
+
+   .btn {
+     display: block; /* Make the button a block element */
+     width: 200px; /* Fixed width for the button */
+     margin: 20px auto; /* Center the button */
+   }
 </style>
 
   <p>
@@ -24,7 +44,7 @@ form {color: darkorange; text-align: center; width: 100%; textarea cols: "50"; }
   </div>
      <p> <h3>
     
-      <b style = " color:#14cff5 "> <h3 align = "center"> Airport Data Updated via RapidAPI</h3></b> <br>
+      <b style = " color:#14cff5 "> <h3 align = "center"> Airport Data Updated</h3></b> <br>
       <b style = " color:#14cff5 "><h6 align = "center"> Feedback : info@astratechz.com </h6></b> 
     
   </h3></p>
@@ -39,18 +59,9 @@ form {color: darkorange; text-align: center; width: 100%; textarea cols: "50"; }
   <hr>
   <form method ="POST">
     {{ form.hidden_tag()}}
-
     {{form.airport.label(class="form-label")}}
-
     {{form.airport(class="form-control")}}
-
-
-
-     <p></p>
-
     {{form.submit(class="btn btn-outline-info")}}
-
-
   </form>  </b>
   
   {% endif %}

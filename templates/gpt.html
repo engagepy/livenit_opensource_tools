@@ -5,40 +5,46 @@
 h1 {color: white; text-align: center;}
 p { color: #14cff5; text-align: center;}
 div {color: white; text-align: center;}
-form {color: darkorange; text-align: center; width: 100%; textarea cols: "50"; }  
+form {
+  color: darkorange;
+  text-align: center;
+  width: 100%;
+}
+
+.form-group { /* Style to add for grouping and alignment */
+  display: flex;
+  justify-content: center; /* Center the form group */
+}
+
+.form-control {
+  width: 50%; /* Medium size */
+  margin: auto; /* Center the input field */
+}
+
+.btn {
+  display: block; /* Make the button a block element */
+  width: 200px; /* Fixed width for the button */
+  margin: 20px auto; /* Center the button */
+}
 </style>
-
-
-
   <p>
   {% if not name %} 
-    
 <div class="alert bg-dark" role="alert">
-
   <hr>
-  
- 
     <h1 align = center style = "color: #14cff5">AI Search - Anything</h1>     
   <br>
-  
-
-   
-  <form method ="POST" >
-    {{ form.hidden_tag()}}
-
-    {{form.name.label(class="form-label")}}
-
-    {{form.name(class="form-control")}}
-
-    <p></p>
-
-    {{form.submit(class="btn btn-outline-info")}}
-
-
-  </form>  </b>
-  
-  
-  </br>
+  <form method="POST">
+    {{ form.hidden_tag() }}
+    <div class="form-group">
+      {{ form.name.label(class="form-label") }}
+      {{ form.name(class="form-control") }}
+    </div>
+    <div class="form-group">
+      {{ form.submit(class="btn btn-outline-info") }}
+    </div>
+  </form>  
+</b> 
+</br>
   <h7 align = center style = "color: white"><strong>Search Examples: </strong> <br>‣ List nearly extinct species with their location and population, <br>‣ largest diamond in the world give me its brief history, <br>‣ write me a tweet on trending HR policies of 2023,<br>‣ fish and corals found in Andaman Islands</h7>
   <br>
   <hr>
@@ -47,17 +53,11 @@ form {color: darkorange; text-align: center; width: 100%; textarea cols: "50"; }
   <img src= "{{url_for('static', filename='bmc_qr.png')}}" width="111" height="111" />
   <br>
     <br>
-
   <br>
 </p>
-
   <hr>
 </div>
-
 {% else %}
-
-
-   
 <div class="alert alert-success alert-dismissible fade show" role="alert">
     {% for message in get_flashed_messages() %}
       <h4>
@@ -68,10 +68,7 @@ form {color: darkorange; text-align: center; width: 100%; textarea cols: "50"; }
   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
   <span aria-hidden="true">&times;</span>
   </button></div>
-
-  
   <div class="alert bg-dark" role="alert">
-
   <hr>
     <h1 align = center style = "color: #14cff5">AI Search - Anything</h1>     
   <br>
@@ -79,18 +76,13 @@ form {color: darkorange; text-align: center; width: 100%; textarea cols: "50"; }
    
   <form method ="POST">
     {{ form.hidden_tag()}}
-
     {{form.name.label(class="form-label")}}
-
     {{form.name(class="form-control")}}
-
     <p></p>
-
     {{form.submit(class="btn btn-outline-info")}}
-
-
-  </form>  </b>
+  </form>  
   
+</b>
   
   </br>
   <h7 align = center style = "color: white"><strong>Search Examples: </strong> <br>‣ List nearly extinct species with their location and population, <br>‣ largest diamond in the world give me its brief history, <br>‣ write me a tweet on trending HR policies of 2023,<br>‣ fish and corals found in Andaman Islands</h7>
