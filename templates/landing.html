@@ -5,11 +5,16 @@
   body {
     background-color: #121212; /* Dark background for contrast */
   }
+  .container {
+    max-width: 960px; /* Maximum width of the container */
+    margin: 0 auto; /* Center the container */
+    padding: 0 20px; /* Padding on the sides */
+  }
   .tool-box {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive grid layout */
+    grid-template-columns: repeat(3, 1fr); /* Three columns */
     gap: 20px;
-    padding: 20px;
+    padding: 40px 0; /* Padding top and bottom */
   }
   .tool-box a {
     border-radius: 15px; /* Rounded corners */
@@ -21,39 +26,39 @@
     color: #ffffff; /* White text */
     text-decoration: none;
     background-color: #333; /* Darker box backgrounds for contrast */
-    position: relative; /* Positioning context for pseudo-elements */
     border: 1px solid #eb6c0c; /* Subtle orange border */
-    
+  }
+
+  @media (max-width: 767px) {
+    .tool-box {
+      grid-template-columns: 1fr; /* Single column for smaller screens */
+    }
   }
 
   h1, p, div {
     color: white; /* Ensure text is visible against the dark background */
     text-align: center;
   }
-
-
-
 </style>
 
-<div class="alert bg-dark" role="alert">
-  <hr>
-  <h1><strong style="color: #eb6c0c"></strong><strong style="color: #eb6c0c">I</strong>nfo<strong style="color: #eb6c0c">-T</strong>ech</h1> 
-  <h5>
-  </h5>
-  <br>
-  <p><strong style="color:#14cff5">APIs & Functions Demo:</strong> Airport, Weather, Reverse Tax & more ..</p>
+<div class="container">
+  <div class="alert bg-dark" role="alert">
+    <hr>
+    <h1><strong style="color: #eb6c0c"></strong><strong style="color: #eb6c0c">I</strong>nfo<strong style="color: #eb6c0c">-T</strong>ech</h1> 
+    <br>
+    <p><strong style="color:#14cff5">APIs & Functions Demo:</strong> Airport, Weather, Reverse Tax & more ..</p>
+  </div>
 
-</div>
-
-<div class="tool-box">
-  <a href="{{ url_for('gpt') }}">AI Search</a>
-  <a href="{{ url_for('airport_page') }}">Airport Data</a>
-  <a href="{{ url_for('reverse_page') }}">Analyse Text</a>
-  <a href="{{ url_for('nft') }}">NFT Demo</a>
-  <a href="{{ url_for('prime_page') }}">Prime Finder</a>
-  <a href="{{ url_for('tax_page') }}">Reverse Tax</a>
-  <a href="{{ url_for('superhero_page') }}">Superhero Data</a>
-  <a href="{{ url_for('weathery') }}">Weather Precision</a>
+  <div class="tool-box">
+    <a href="{{ url_for('gpt') }}">AI Search</a>
+    <a href="{{ url_for('airport_page') }}">Airport Data</a>
+    <a href="{{ url_for('reverse_page') }}">Analyse Text</a>
+    <a href="{{ url_for('nft') }}">NFT Demo</a>
+    <a href="{{ url_for('prime_page') }}">Prime Finder</a>
+    <a href="{{ url_for('tax_page') }}">Reverse Tax</a>
+    <a href="{{ url_for('superhero_page') }}">Superhero Data</a>
+    <a href="{{ url_for('weathery') }}">Weather Precision</a>
+  </div>
 </div>
 
 {% endblock %}
