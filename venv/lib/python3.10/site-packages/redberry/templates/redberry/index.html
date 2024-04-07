@@ -1,0 +1,20 @@
+{% extends "redberry/_base.html" %}
+
+{% block content %}
+
+    {% include "redberry/_jumbotron.html" %}
+
+    <div id="red-posts-index" class="container">
+        {% if not posts %}
+            No posts yet.
+        {% endif %}
+
+        {% for post in posts %}
+            {% include "redberry/_post.html" %}
+        {% endfor %}
+    </div>
+
+
+{% endblock %}
+
+

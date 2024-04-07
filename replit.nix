@@ -1,5 +1,8 @@
 { pkgs }: {
   deps = [
+    pkgs.rustc
+    pkgs.libiconv
+    pkgs.cargo
     pkgs.python310Full
     pkgs.replitPackages.prybar-python310
     pkgs.replitPackages.stderred

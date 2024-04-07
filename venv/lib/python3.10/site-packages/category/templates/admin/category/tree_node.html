@@ -1,0 +1,19 @@
+<div style="margin-left: 20px;">
+{{ category }}
+{% if category.tags.exists %}
+    <small>
+    (
+    {% for tag in category.tags %}
+        {% if not forloop.first %}, {% endif %}
+        {{ tag }}
+    {% endfor %}
+    )
+    </small>
+{% endif %}
+
+{% for category in category.children %}
+    {% with template_name="admin/category/tree_node.html" %}
+        {% include template_name %}
+    {% endwith %}
+{% endfor %}
+</div>

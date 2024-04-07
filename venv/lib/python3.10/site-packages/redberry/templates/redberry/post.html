@@ -1,0 +1,46 @@
+{% extends "redberry/_base.html" %}
+
+{% block head %}
+    <title>{{ post.title }}</title>
+{% endblock %}
+
+{% block content %}
+    {% include "redberry/post/_json-ld.html" %}
+
+    {% include "redberry/post/_breadcrumb.html" %}
+    {% include "redberry/post/_breadcrumb-json.html" %}
+
+    <div class="container">
+        <div id="red-post-id-{{ post.id }}" class="red-post margin-bottom-30">
+
+            <div class="row">
+                <h1 class="text-center col-md-offset-1 col-md-10">{{ post.title }}</h1>
+            </div>
+
+            <div class="text-center margin-bottom-30">
+                {% for category in post.categories %}
+                <a class="label label-success category-label" href="{{ url_for('redberry.show_category', category_slug=category.slug) }}">
+                    {{category.title}}
+                </a>
+                {% endfor %}
+            </div>
+
+            {% if post.hero_image %}
+            <div class="row margin-bottom-30">
+                <div class="col-md-offset-2 col-md-8">
+                    <img src="{{ post.hero_image }}" style="max-width:100%;" />
+                </div>
+            </div>
+            {% endif %}
+
+            <div class="row">
+                <div class="col-md-offset-2 col-md-8">
+                   {{ post.content|safe }}
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+{% endblock %}

@@ -1,0 +1,19 @@
+{% load i18n %}
+{% load static %}
+
+{% if import_js %}
+    <script type="text/javascript" src="{% static "likes/includes/likes.js" %}"></script>
+{% endif %}
+
+{% if likes_enabled %}
+    <div class="likes">
+        {{ content_obj.vote_total }}
+        <span>
+            {% if can_vote %}
+                <a class="liker" href="{% url "like" content_type content_obj.id 1 %}" rel="nofollow">{% trans "I Like" %}</a>
+            {% else %}
+                {% trans "Likes" %}
+            {% endif %}
+        </span>
+    </div>
+{% endif %}

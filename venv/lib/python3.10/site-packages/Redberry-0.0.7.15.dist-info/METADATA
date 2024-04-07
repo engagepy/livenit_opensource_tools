@@ -1,0 +1,34 @@
+Metadata-Version: 2.0
+Name: Redberry
+Version: 0.0.7.15
+Summary: Flask Blueprint for adding simple CMS functionality
+Home-page: https://github.com/michaelcho/redberry
+Author: Michael Cho
+Author-email: michael.cho@mail.com
+License: Apache License 2.0
+Description-Content-Type: UNKNOWN
+Keywords: flask cms blog blueprint
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Framework :: Flask
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Requires-Dist: flask (>=0.11.1)
+Requires-Dist: python-slugify (>=1.2.1)
+Requires-Dist: flask-wtf (>=0.13.1)
+Requires-Dist: html5lib-truncation (==0.1.0)
+Requires-Dist: apesmit-python2 (==0.1)
+Requires-Dist: html5lib (==1.0b8)
+Requires-Dist: beautifulsoup4 (==4.4.1)
+
+Flask Blueprint for adding simple CMS functionality
+
+

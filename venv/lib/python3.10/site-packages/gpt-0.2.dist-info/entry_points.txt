@@ -1,0 +1,5 @@
+[console_scripts]
+print_gpt_header = gpt.scripts:print_gpt_header
+print_gpt_partition_entry_array = gpt.scripts:print_gpt_partition_entry_array
+print_mbr = gpt.scripts:print_mbr
+

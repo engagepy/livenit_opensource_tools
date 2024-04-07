@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: gpt
+Version: 0.2
+Summary: GPT utils
+Home-page: https://github.com/metebalci/gpt
+Author: Mete Balci
+Author-email: metebalci@gmail.com
+License: GPLv3
+Keywords: GPT
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Information Technology
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Topic :: System :: Boot
+Classifier: Topic :: System :: Filesystems
+Classifier: Topic :: System :: Recovery Tools
+Classifier: Topic :: System :: Systems Administration
+Classifier: Topic :: Utilities
+
+# gpt
+python GPT utils
+
+

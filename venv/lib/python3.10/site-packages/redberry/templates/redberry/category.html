@@ -1,0 +1,29 @@
+{% extends "redberry/_base.html" %}
+
+{% block head %}
+    <title>{{ category.title }}</title>
+{% endblock %}
+
+
+{% block content %}
+
+    {% include "redberry/category/_json-ld.html" %}
+
+    {% include "redberry/category/_breadcrumb.html" %}
+
+    <div id="red-category-id-{{ category.id }}" class="container red-category">
+
+        <h1 class="text-center margin-bottom-10">{{ category.title | safe }}</h1>
+        <h4 class="text-center margin-bottom-30">{{ category.description | safe }}</h4>
+
+        {% if not category.posts %}
+            No posts yet.
+        {% endif %}
+
+        {% for post in category.posts %}
+            {% include "redberry/_post.html" %}
+        {% endfor %}
+
+    </div>
+
+{% endblock %}

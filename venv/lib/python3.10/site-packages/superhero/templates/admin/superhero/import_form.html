@@ -1,0 +1,13 @@
+{% extends "object_tools/tool_base.html" %}
+{% load i18n %}
+
+{% block tool_form %}
+    <form action="" method="post" enctype="multipart/form-data">{% csrf_token %}
+        {% for fieldset in adminform %}
+            {% include "admin/includes/fieldset.html" %}
+        {% endfor %}
+        <div class="submit-row">
+            <input type="submit" value="{% trans "Import" %}" class="default" name="{{ tool.name }}_mail" />
+        </div>
+    </form>
+{% endblock %}

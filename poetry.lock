@@ -41,6 +41,33 @@ python-versions = ">=3.7"
 frozenlist = ">=1.1.0"
 
 [[package]]
+name = "amqp"
+version = "5.2.0"
+description = "Low-level AMQP client for Python (fork of amqplib)."
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+vine = ">=5.0.0,<6.0.0"
+
+[[package]]
+name = "analysis"
+version = "0.1.7"
+description = "Source code analysis of Python programs"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
+name = "apesmit-python2"
+version = "0.1"
+description = "simple Python module to create XML sitemaps"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "argon2-cffi"
 version = "21.3.0"
 description = "The secure Argon2 password hashing algorithm."
@@ -96,6 +123,26 @@ tests-no-zope = ["hypothesis", "pympler", "pytest (>=4.3.0)", "pytest-xdist", "c
 tests_no_zope = ["hypothesis", "pympler", "pytest (>=4.3.0)", "pytest-xdist", "cloudpickle", "mypy (>=0.971,<0.990)", "pytest-mypy-plugins"]
 
 [[package]]
+name = "beautifulsoup4"
+version = "4.4.1"
+description = "Screen-scraping library"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.extras]
+html5lib = ["html5lib"]
+lxml = ["lxml"]
+
+[[package]]
+name = "billiard"
+version = "4.2.0"
+description = "Python multiprocessing fork with improvements and bugfixes"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[[package]]
 name = "biopython"
 version = "1.78"
 description = "Freely available tools for computational molecular biology."
@@ -105,6 +152,58 @@ python-versions = ">=3.6"
 
 [package.dependencies]
 numpy = "*"
+
+[[package]]
+name = "celery"
+version = "5.3.5"
+description = "Distributed Task Queue."
+category = "main"
+optional = false
+python-versions = ">=3.8"
+
+[package.dependencies]
+billiard = ">=4.2.0,<5.0"
+click = ">=8.1.2,<9.0"
+click-didyoumean = ">=0.3.0"
+click-plugins = ">=1.1.1"
+click-repl = ">=0.2.0"
+kombu = ">=5.3.3,<6.0"
+python-dateutil = ">=2.8.2"
+tzdata = ">=2022.7"
+vine = ">=5.1.0,<6.0"
+
+[package.extras]
+arangodb = ["pyArango (>=2.0.2)"]
+auth = ["cryptography (==41.0.5)"]
+azureblockblob = ["azure-storage-blob (>=12.15.0)"]
+brotli = ["brotli (>=1.0.0)", "brotlipy (>=0.7.0)"]
+cassandra = ["cassandra-driver (>=3.25.0,<4)"]
+consul = ["python-consul2 (==0.1.5)"]
+cosmosdbsql = ["pydocumentdb (==2.3.5)"]
+couchbase = ["couchbase (>=3.0.0)"]
+couchdb = ["pycouchdb (==1.14.2)"]
+django = ["Django (>=2.2.28)"]
+dynamodb = ["boto3 (>=1.26.143)"]
+elasticsearch = ["elastic-transport (<=8.10.0)", "elasticsearch (<=8.10.1)"]
+eventlet = ["eventlet (>=0.32.0)"]
+gevent = ["gevent (>=1.5.0)"]
+librabbitmq = ["librabbitmq (>=2.0.0)"]
+memcache = ["pylibmc (==1.6.3)"]
+mongodb = ["pymongo[srv] (>=4.0.2)"]
+msgpack = ["msgpack (==1.0.7)"]
+pymemcache = ["python-memcached (==1.59)"]
+pyro = ["pyro4 (==4.82)"]
+pytest = ["pytest-celery (==0.0.0)"]
+redis = ["redis (>=4.5.2,!=4.5.5,<6.0.0)"]
+s3 = ["boto3 (>=1.26.143)"]
+slmq = ["softlayer-messaging (>=1.0.3)"]
+solar = ["ephem (==4.1.5)"]
+sqlalchemy = ["sqlalchemy (>=1.4.48,<2.1)"]
+sqs = ["boto3 (>=1.26.143)", "kombu[sqs] (>=5.3.0)", "urllib3 (>=1.26.16)", "pycurl (>=7.43.0.5)"]
+tblib = ["tblib (>=1.3.0)", "tblib (>=1.5.0)"]
+yaml = ["PyYAML (>=3.10)"]
+zookeeper = ["kazoo (>=1.3.1)"]
+zstd = ["zstandard (==0.22.0)"]
 
 [[package]]
 name = "certifi"
@@ -148,12 +247,64 @@ python-versions = ">=3.7"
 colorama = {version = "*", markers = "platform_system == \"Windows\""}
 
 [[package]]
+name = "click-didyoumean"
+version = "0.3.0"
+description = "Enables git-like *did-you-mean* feature in click"
+category = "main"
+optional = false
+python-versions = ">=3.6.2,<4.0.0"
+
+[package.dependencies]
+click = ">=7"
+
+[[package]]
+name = "click-plugins"
+version = "1.1.1"
+description = "An extension module for click to enable registering CLI commands via setuptools entry-points."
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+click = ">=4.0"
+
+[package.extras]
+dev = ["pytest (>=3.6)", "pytest-cov", "wheel", "coveralls"]
+
+[[package]]
+name = "click-repl"
+version = "0.3.0"
+description = "REPL plugin for Click"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+click = ">=7.0"
+prompt-toolkit = ">=3.0.36"
+
+[package.extras]
+testing = ["pytest-cov (>=4.0.0)", "pytest (>=7.2.1)", "tox (>=4.4.3)"]
+
+[[package]]
 name = "colorama"
 version = "0.4.6"
 description = "Cross-platform colored terminal text."
 category = "main"
 optional = false
 python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,!=3.5.*,!=3.6.*,>=2.7"
+
+[[package]]
+name = "crypto"
+version = "1.4.1"
+description = "Simple symmetric GPG file encryption and decryption"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+Naked = "*"
+shellescape = "*"
 
 [[package]]
 name = "cryptography"
@@ -191,12 +342,197 @@ optional = false
 python-versions = ">=3.7"
 
 [[package]]
+name = "django"
+version = "1.6.11"
+description = "A high-level Python Web framework that encourages rapid development and clean, pragmatic design."
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
+name = "django-category"
+version = "1.11.0"
+description = "Django categorize content app."
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+django = "*"
+django-object-tools = ">=1.9"
+South = ">=1.0.2"
+
+[[package]]
+name = "django-celery"
+version = "3.1.17"
+description = "Old django celery integration project."
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+celery = ">=3.1.15"
+
+[[package]]
+name = "django-etc"
+version = "1.4.0"
+description = "Tiny stuff for Django that won't fit into separate apps."
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
+name = "django-generate"
+version = "0.0.6"
+description = "Django slightly smarter than fixtures content generation app."
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+Django = "*"
+
+[[package]]
+name = "django-likes"
+version = "2.0.1"
+description = "Django app providing view interface to django-secretballot."
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+django-secretballot = ">=1.0.0"
+
+[[package]]
 name = "django-manifest"
 version = "0.2.1"
 description = "A kickstarter for Django Web Framework projects that supports both legacy frontend and javascript technolohies using REST API."
 category = "main"
 optional = false
 python-versions = "*"
+
+[[package]]
+name = "django-model-utils"
+version = "2.6.1"
+description = "Django model mixins and utilities"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+Django = ">=1.4.2"
+
+[[package]]
+name = "django-object-tools"
+version = "2.0.0"
+description = "Django app enabling painless creation of additional admin object tools."
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
+name = "django-pagination"
+version = "1.0.7"
+description = "django-pagination"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
+name = "django-photologue"
+version = "3.1.1"
+description = "Powerful image management for the Django web framework."
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+Django = ">=1.6"
+django-model-utils = ">=2.2"
+django-sortedm2m = ">=0.8.1"
+Pillow = ">=2.0.0"
+
+[[package]]
+name = "django-preferences"
+version = "1.0.0"
+description = "Django app allowing users to set app specific preferences through the admin interface."
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+django = "*"
+
+[[package]]
+name = "django-publisher"
+version = "0.0.3"
+description = "Django external publishing app."
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+Django = "*"
+
+[[package]]
+name = "django-secretballot"
+version = "2.0.0"
+description = "Django anonymous voting application."
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+django-etc = ">=1.2.0"
+
+[package.extras]
+develop = ["tox", "django", "pytest-django", "pytest"]
+test = ["pytest-django", "pytest-cov", "pytest"]
+
+[[package]]
+name = "django-sites-groups"
+version = "1.11.1"
+description = "Organize sites from the Django sites framework into groups."
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+django = "*"
+
+[[package]]
+name = "django-sortedm2m"
+version = "3.1.1"
+description = "Drop-in replacement for Django's many to many field with sorted relations."
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
+name = "django-tastypie"
+version = "0.11.1"
+description = "A flexible & capable API layer for Django."
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+python-dateutil = ">=1.5,<2.0 || >2.0"
+python-mimeparse = ">=0.1.4"
+
+[[package]]
+name = "django-ultracache"
+version = "2.0.0"
+description = "Drop-in replacement for Django's template fragment caching. Provides automatic cache invalidation."
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+django = "*"
+pika = ">=0.11,<1.0"
+PyYAML = "*"
+requests = "*"
 
 [[package]]
 name = "dnspython"
@@ -334,6 +670,36 @@ python-versions = ">=3.5"
 requests = ">=2.20.0,<3.0"
 
 [[package]]
+name = "gpt"
+version = "0.2"
+description = "GPT utils"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
+name = "html5lib"
+version = "1.0b8"
+description = "HTML parser based on the WHATWG HTML specification"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+six = "*"
+
+[[package]]
+name = "html5lib-truncation"
+version = "0.1.0"
+description = "Truncating HTML with html5lib filter"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+html5lib = "*"
+
+[[package]]
 name = "idna"
 version = "3.4"
 description = "Internationalized Domain Names in Applications (IDNA)"
@@ -405,12 +771,85 @@ MarkupSafe = ">=2.0"
 i18n = ["Babel (>=2.7)"]
 
 [[package]]
+name = "jmbo"
+version = "2.0.17"
+description = "The Jmbo base product introduces a content type and various tools required to build Jmbo products."
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+django = ">=1.4,<1.7"
+django-category = ">=0.0.5"
+django-celery = "*"
+django-generate = "*"
+django-likes = ">=0.0.8"
+django-pagination = "*"
+django-photologue = ">=3.1,<3.2"
+django-preferences = "*"
+django-publisher = "*"
+django-sites-groups = "*"
+django-tastypie = ">=0.10,<0.12"
+django-ultracache = "*"
+Pillow = "*"
+pytz = "*"
+south = "*"
+
+[[package]]
+name = "jmbo-superhero"
+version = "0.1"
+description = "Jmbo superhero application.  A content type that represents a bundle of HTML, JS and CSS on the filesystem."
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+jmbo = ">=1.1.1"
+
+[[package]]
 name = "joblib"
 version = "1.2.0"
 description = "Lightweight pipelining with Python functions"
 category = "main"
 optional = false
 python-versions = ">=3.7"
+
+[[package]]
+name = "kombu"
+version = "5.3.4"
+description = "Messaging library for Python."
+category = "main"
+optional = false
+python-versions = ">=3.8"
+
+[package.dependencies]
+amqp = ">=5.1.1,<6.0.0"
+vine = "*"
+
+[package.extras]
+azureservicebus = ["azure-servicebus (>=7.10.0)"]
+azurestoragequeues = ["azure-identity (>=1.12.0)", "azure-storage-queue (>=12.6.0)"]
+confluentkafka = ["confluent-kafka (>=2.2.0)"]
+consul = ["python-consul2"]
+librabbitmq = ["librabbitmq (>=2.0.0)"]
+mongodb = ["pymongo (>=4.1.1)"]
+msgpack = ["msgpack"]
+pyro = ["pyro4"]
+qpid = ["qpid-python (>=0.26)", "qpid-tools (>=0.26)"]
+redis = ["redis (>=4.5.2,!=4.5.5,<6.0.0)"]
+slmq = ["softlayer-messaging (>=1.0.3)"]
+sqlalchemy = ["sqlalchemy (>=1.4.48,<2.1)"]
+sqs = ["boto3 (>=1.26.143)", "urllib3 (>=1.26.16)", "pycurl (>=7.43.0.5)"]
+yaml = ["PyYAML (>=3.10)"]
+zookeeper = ["kazoo (>=2.8.0)"]
+
+[[package]]
+name = "logic-toolchain"
+version = "0.0.2"
+description = "Wrapper for FPGA toolchain tools"
+category = "main"
+optional = false
+python-versions = "*"
 
 [[package]]
 name = "markupsafe"
@@ -427,6 +866,18 @@ description = "multidict implementation"
 category = "main"
 optional = false
 python-versions = ">=3.7"
+
+[[package]]
+name = "naked"
+version = "0.1.32"
+description = "A command line application framework"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+pyyaml = "*"
+requests = "*"
 
 [[package]]
 name = "numpy"
@@ -493,6 +944,30 @@ build_docs = ["sphinx (>=1.6)", "sphinxcontrib-fulltoc (>=1.2.0)", "cloud-spthem
 totp = ["cryptography"]
 
 [[package]]
+name = "pika"
+version = "0.13.1"
+description = "Pika Python AMQP Client Library"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.extras]
+tornado = ["tornado"]
+twisted = ["twisted"]
+
+[[package]]
+name = "pillow"
+version = "10.1.0"
+description = "Python Imaging Library (Fork)"
+category = "main"
+optional = false
+python-versions = ">=3.8"
+
+[package.extras]
+docs = ["furo", "olefile", "sphinx (>=2.4)", "sphinx-copybutton", "sphinx-inline-tabs", "sphinx-removed-in", "sphinxext-opengraph"]
+tests = ["check-manifest", "coverage", "defusedxml", "markdown2", "olefile", "packaging", "pyroma", "pytest", "pytest-cov", "pytest-timeout"]
+
+[[package]]
 name = "platformdirs"
 version = "2.6.2"
 description = "A small Python package for determining appropriate platform-specific dirs, e.g. a \"user data dir\"."
@@ -515,6 +990,31 @@ python-versions = ">=3.6"
 [package.extras]
 testing = ["pytest-benchmark", "pytest"]
 dev = ["tox", "pre-commit"]
+
+[[package]]
+name = "prettytable"
+version = "3.9.0"
+description = "A simple Python library for easily displaying tabular data in a visually appealing ASCII table format"
+category = "main"
+optional = false
+python-versions = ">=3.8"
+
+[package.dependencies]
+wcwidth = "*"
+
+[package.extras]
+tests = ["pytest", "pytest-cov", "pytest-lazy-fixture"]
+
+[[package]]
+name = "prompt-toolkit"
+version = "3.0.41"
+description = "Library for building powerful interactive command lines in Python"
+category = "main"
+optional = false
+python-versions = ">=3.7.0"
+
+[package.dependencies]
+wcwidth = "*"
 
 [[package]]
 name = "protobuf"
@@ -591,6 +1091,17 @@ pycryptodomex = ">=3.12.0,<4.0.0"
 docs = ["Sphinx[docs] (>=4.3.2,<6.0.0)", "sphinx-autodoc-typehints[docs] (==1.12.0)", "sphinx-rtd-theme[docs] (>=1.0.0,<2.0.0)"]
 
 [[package]]
+name = "python-dateutil"
+version = "2.8.2"
+description = "Extensions to the standard Python datetime module"
+category = "main"
+optional = false
+python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,>=2.7"
+
+[package.dependencies]
+six = ">=1.5"
+
+[[package]]
 name = "python-lsp-jsonrpc"
 version = "1.0.0"
 description = "JSON RPC 2.0 server library"
@@ -605,8 +1116,30 @@ ujson = ">=3.0.0"
 test = ["coverage", "pytest-cov", "pytest", "pyflakes", "pycodestyle", "pylint"]
 
 [[package]]
+name = "python-mimeparse"
+version = "1.6.0"
+description = "A module provides basic functions for parsing mime-type names and matching them against a list of media-ranges."
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
+name = "python-slugify"
+version = "8.0.1"
+description = "A Python slugify application that also handles Unicode"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.dependencies]
+text-unidecode = ">=1.3"
+
+[package.extras]
+unidecode = ["Unidecode (>=1.1.1)"]
+
+[[package]]
 name = "pytoolconfig"
-version = "1.2.5"
+version = "1.2.6"
 description = "Python tool configuration"
 category = "dev"
 optional = false
@@ -618,18 +1151,43 @@ platformdirs = {version = ">=1.4.4", optional = true, markers = "extra == \"glob
 tomli = {version = ">=2.0.1", markers = "python_version < \"3.11\""}
 
 [package.extras]
+validation = ["pydantic (>=1.7.4)"]
+global = ["platformdirs (>=1.4.4)"]
 doc = ["tabulate (>=0.8.9)", "sphinx (>=4.5.0)"]
 gendocs = ["sphinx (>=4.5.0)", "sphinx-autodoc-typehints (>=1.18.1)", "sphinx-rtd-theme (>=1.0.0)", "pytoolconfig"]
-global = ["platformdirs (>=1.4.4)"]
-validation = ["pydantic (>=1.7.4)"]
 
 [[package]]
 name = "pytz"
-version = "2023.3"
+version = "2023.3.post1"
 description = "World timezone definitions, modern and historical"
 category = "main"
 optional = false
 python-versions = "*"
+
+[[package]]
+name = "pyyaml"
+version = "6.0.1"
+description = "YAML parser and emitter for Python"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[[package]]
+name = "redberry"
+version = "0.0.7.15"
+description = "Flask Blueprint for adding simple CMS functionality"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+apesmit-python2 = "0.1"
+beautifulsoup4 = "4.4.1"
+flask = ">=0.11.1"
+flask-wtf = ">=0.13.1"
+html5lib = "1.0b8"
+html5lib-truncation = "0.1.0"
+python-slugify = ">=1.2.1"
 
 [[package]]
 name = "regex"
@@ -691,17 +1249,17 @@ yapf = ["yapf", "whatthepatch (>=1.0.2,<2.0.0)"]
 
 [[package]]
 name = "requests"
-version = "2.28.2"
+version = "2.31.0"
 description = "Python HTTP for Humans."
 category = "main"
 optional = false
-python-versions = ">=3.7, <4"
+python-versions = ">=3.7"
 
 [package.dependencies]
 certifi = ">=2017.4.17"
 charset-normalizer = ">=2,<4"
 idna = ">=2.5,<4"
-urllib3 = ">=1.21.1,<1.27"
+urllib3 = ">=1.21.1,<3"
 
 [package.extras]
 socks = ["PySocks (>=1.5.6,!=1.5.7)"]
@@ -739,12 +1297,36 @@ doc = ["sphinx (!=4.1.0)", "pydata-sphinx-theme (==0.9.0)", "sphinx-design (>=0.
 dev = ["mypy", "typing-extensions", "pycodestyle", "flake8", "rich-click", "click", "doit (>=0.36.0)", "pydevtool"]
 
 [[package]]
+name = "shellescape"
+version = "3.8.1"
+description = "Shell escape a string to safely use it as a token in a shell command (backport of cPython shlex.quote for Python versions 2.x & < 3.3)"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "six"
 version = "1.16.0"
 description = "Python 2 and 3 compatibility utilities"
 category = "main"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*"
+
+[[package]]
+name = "south"
+version = "1.0.2"
+description = "South: Migrations for Django"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
+name = "text-unidecode"
+version = "1.3"
+description = "The most basic Text::Unidecode port"
+category = "main"
+optional = false
+python-versions = "*"
 
 [[package]]
 name = "tiktoken"
@@ -818,6 +1400,14 @@ optional = false
 python-versions = "*"
 
 [[package]]
+name = "tzdata"
+version = "2023.3"
+description = "Provider of IANA time zone data"
+category = "main"
+optional = false
+python-versions = ">=2"
+
+[[package]]
 name = "ujson"
 version = "5.7.0"
 description = "Ultra fast JSON encoder and decoder for Python"
@@ -839,12 +1429,41 @@ secure = ["pyOpenSSL (>=0.14)", "cryptography (>=1.3.4)", "idna (>=2.0.0)", "cer
 socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
 
 [[package]]
+name = "vine"
+version = "5.1.0"
+description = "Python promises."
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[[package]]
 name = "visitor"
 version = "0.1.3"
 description = "A tiny pythonic visitor implementation."
 category = "main"
 optional = false
 python-versions = "*"
+
+[[package]]
+name = "wcwidth"
+version = "0.2.10"
+description = "Measures the displayed width of unicode strings in a terminal"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
+name = "weathers"
+version = "1.2.1"
+description = "A sample Python project to make configuration  easy"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+beautifulsoup4 = "*"
+prettytable = "*"
+requests = "*"
 
 [[package]]
 name = "werkzeug"
@@ -905,26 +1524,53 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.10.0,<3.11"
-content-hash = "4b94843615c33ceb98ec1a464be2542617405b5118175a0b737e1b2416b15fde"
+content-hash = "270a6697814371e7bdfcc25dd1adc4454636554e865e8dfe3a5048ee54fb7979"
 
 [metadata.files]
 aiohttp = []
 aiohttp-retry = []
 aiosignal = []
+amqp = []
+analysis = []
+apesmit-python2 = []
 argon2-cffi = []
 argon2-cffi-bindings = []
 async-timeout = []
 attrs = []
+beautifulsoup4 = []
+billiard = []
 biopython = []
+celery = []
 certifi = []
 cffi = []
 charset-normalizer = []
 click = []
+click-didyoumean = []
+click-plugins = []
+click-repl = []
 colorama = []
+crypto = []
 cryptography = []
 cython = []
 debugpy = []
+django = []
+django-category = []
+django-celery = []
+django-etc = []
+django-generate = []
+django-likes = []
 django-manifest = []
+django-model-utils = []
+django-object-tools = []
+django-pagination = []
+django-photologue = []
+django-preferences = []
+django-publisher = []
+django-secretballot = []
+django-sites-groups = []
+django-sortedm2m = []
+django-tastypie = []
+django-ultracache = []
 dnspython = []
 dominate = []
 email-validator = []
@@ -936,22 +1582,34 @@ flask-wtf = []
 frozenlist = []
 future = []
 googlemaps = []
+gpt = []
+html5lib = []
+html5lib-truncation = []
 idna = []
 insilicoseq = []
 iso8601 = []
 itsdangerous = []
 jedi = []
 jinja2 = []
+jmbo = []
+jmbo-superhero = []
 joblib = []
+kombu = []
+logic-toolchain = []
 markupsafe = []
 multidict = []
+naked = []
 numpy = []
 openai = []
 packaging = []
 parso = []
 passlib = []
+pika = []
+pillow = []
 platformdirs = []
 pluggy = []
+prettytable = []
+prompt-toolkit = []
 protobuf = []
 pycparser = []
 pycryptodomex = []
@@ -959,25 +1617,37 @@ pyflakes = []
 pyjwt = []
 pysam = []
 pyseto = []
+python-dateutil = []
 python-lsp-jsonrpc = []
+python-mimeparse = []
+python-slugify = []
 pytoolconfig = []
 pytz = []
+pyyaml = []
+redberry = []
 regex = []
 replit = []
 replit-python-lsp-server = []
 requests = []
 rope = []
 scipy = []
+shellescape = []
 six = []
+south = []
+text-unidecode = []
 tiktoken = []
 toml = []
 tomli = []
 tqdm = []
 twilio = []
 typing-extensions = []
+tzdata = []
 ujson = []
 urllib3 = []
+vine = []
 visitor = []
+wcwidth = []
+weathers = []
 werkzeug = []
 whatthepatch = []
 wtforms = []

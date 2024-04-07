@@ -1,0 +1,5 @@
+{% load jmbo_template_tags %}
+
+{% jmbocache 3600 'superhero-list-item-inclusion' object.id object.modified %}
+    <iframe src="{{ MEDIA_URL }}superhero/{{ object.name }}/index.html" />
+{% endjmbocache %}

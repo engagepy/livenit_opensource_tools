@@ -1,0 +1,14 @@
+{% macro svg_icon(icon_name) %}
+    <svg class="icon {{ icon_name }}">
+        <use xlink:href="#{{ icon_name }}"></use>
+    </svg>
+{% endmacro %}
+
+{% macro true_or_false(boolean) %}
+    {% if boolean %}
+        <span class="glyphicon glyphicon-ok"></span>
+    {% else %}
+        <span class="glyphicon glyphicon-remove"></span>
+    {% endif %}
+
+{% endmacro %}

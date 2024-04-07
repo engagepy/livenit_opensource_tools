@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: logic-toolchain
+Version: 0.0.2
+Summary: Wrapper for FPGA toolchain tools
+Home-page: https://gitlab.com/tymonx/logic-toolchain
+Author: Tymoteusz Blazejczyk
+Author-email: tymoteusz.blazejczyk.pl@gmail.com
+License: Apache 2.0
+Keywords: verilog,vhdl,fpga,hdl,rtl
+Platform: UNKNOWN
+Classifier: Development Status :: 1 - Planning
+Classifier: Environment :: Console
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Utilities
+Classifier: Topic :: Software Development :: Compilers
+Classifier: Topic :: Scientific/Engineering :: Electronic Design Automation (EDA)
+Description-Content-Type: text/markdown
+
+# Logic Toolchain
+
+Wrapper for FPGA toolchain tools
+

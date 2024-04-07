@@ -1,0 +1,4 @@
+Django>=1.6
+Pillow>=2.0.0
+django-sortedm2m>=0.8.1
+django-model-utils>=2.2

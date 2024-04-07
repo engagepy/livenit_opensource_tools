@@ -1,0 +1,4 @@
+django
+requests
+pika<1.0,>=0.11
+PyYAML

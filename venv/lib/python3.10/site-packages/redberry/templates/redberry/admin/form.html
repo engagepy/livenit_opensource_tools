@@ -1,0 +1,50 @@
+{% extends "redberry/admin/index.html" %}
+
+{% block head %}
+    <title>Admin</title>
+    <link href="{{ url_for('redberry.static', filename='css/trumbowyg.min.css')}}" rel="stylesheet">
+{% endblock %}
+
+{% block admin_content %}
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <form method="POST">
+                {{ form.csrf_token }}
+
+                {% for field in form %}
+                    {% if field.name != 'csrf_token' %}
+                        <div class="form-group {% if field.errors %}has-error{% endif %}">
+                            {{ field.label }}
+                            {% if field.type == 'TextAreaField' %}
+                                <div class="rich-editable" id="{{ field.name }}">{{ field.data | safe }}</div>
+                                {{ field(class='hide') }}
+                            {% else %}
+                                {{ field(class='form-control') }}
+                            {% endif %}
+
+                            <span class="help-block">
+                                {% for error in field.errors %}
+                                    {{ error }}
+                                {% endfor %}
+                            </span>
+                        </div>
+
+                    {% endif %}
+                {% endfor %}
+
+                <button type="submit" class="btn btn-lg btn-success">Save</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascript %}
+<script type="text/javascript" src="{{ url_for('redberry.static', filename='js/trumbowyg.min.js')}}"></script>
+<script type="text/javascript" src="{{ url_for('redberry.static', filename='js/trumbowyg.preformatted.min.js')}}"></script>
+<script type="text/javascript" src="{{ url_for('redberry.static', filename='js/trumbowyg.table.min.js')}}"></script>
+<script type="text/javascript" src="{{ url_for('redberry.static', filename='js/redberry_admin.js')}}"></script>
+<script type="text/javascript">
+    $.trumbowyg.svgPath = "{{ url_for('redberry.static', filename='svg/icons.svg') }}"
+</script>
+{% endblock %}
