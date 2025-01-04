@@ -1,103 +1,172 @@
+
 {% extends 'base.html' %}
 
 {% block content %}
 <style>
   body {
-    background-color: #121212; /* Dark background for contrast */
+    background-color: #0a0a0a;
+    color: #ffffff;
+    min-height: 100vh;
   }
+  
   .container {
-    max-width: 960px; /* Maximum width of the container */
-    margin: 0 auto; /* Center the container */
-    padding: 0 20px; /* Padding on the sides */
+    padding: 2rem 1rem;
   }
-  .tool-box {
+
+  .header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .tools-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Three columns */
-    gap: 20px;
-    padding: 40px 0; /* Padding top and bottom */
-  }
-  .tool-box a {
-    border-radius: 15px; /* Rounded corners */
-    text-align: center;
-    display: flex; /* Center content */
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    color: #ffffff; /* White text */
-    text-decoration: none;
-    background-color: #333; /* Darker box backgrounds for contrast */
-    border: 1px solid #eb6c0c; /* Subtle orange border */
-    overflow: hidden; /* Hide overflow for pseudo element */
-    position: relative; /* Needed for absolute positioning of pseudo element */
-    transition: all 0.3s ease; /* Smooth transition for hover effect */
-    z-index: 1;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
   }
 
-  /* Description appearing on hover */
-  .tool-box a::after {
-    content: attr(data-description); /* Use data attribute for description */
+  .tool-card {
+    background: linear-gradient(145deg, #1a1a1a, #252525);
+    border-radius: 15px;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    height: 220px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .tool-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    border-color: #14cff5;
+  }
+
+  .tool-card::before {
+    content: '';
     position: absolute;
-    left: 0;
-    top: 100%; /* Start from the bottom */
-    width: 100%;
-    color: #ffffff; /* Description text color */
-    background-color: rgba(35, 39, 42, 0.9); /* Slightly transparent background */
-    font-size: 0.8em; /* Smaller font size for description */
-    padding: 15px;
-    border-radius: 0 0 15px 15px; /* Rounded corners */
-    opacity: 0; /* Initially transparent */
-    transform: translateY(-10px); /* Start a bit above */
-    transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth transition for hover effect */
-    z-index: -1;
-    box-sizing: border-box; /* Include padding and border in the width and height */
+    top: 0;
+    right: 0;
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(45deg, transparent, rgba(20, 207, 245, 0.1));
+    border-radius: 50%;
+    transform: translate(50%, -50%);
   }
 
-  .tool-box a:hover, .tool-box a:focus {
-    transform: translateY(-5px); /* Move up on hover/focus */
-    background-color: #444; /* Slightly lighter background */
+  .tool-title {
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
   }
 
-  .tool-box a:hover::after, .tool-box a:focus::after {
-    opacity: 1; /* Make description visible */
-    transform: translateY(0); /* Align with the button bottom */
+  .tool-description {
+    color: #a0a0a0;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin-bottom: 1rem;
+    flex-grow: 1;
   }
 
-  @media (max-width: 1024px) {
-    .tool-box {
-      grid-template-columns: repeat(2, 1fr); /* Two columns for medium screens */
+  .tool-link {
+    color: #14cff5;
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-block;
+    transition: all 0.3s ease;
+  }
+
+  .tool-link:hover {
+    color: #ffffff;
+    text-decoration: none;
+  }
+
+  @media (max-width: 768px) {
+    .tools-grid {
+      grid-template-columns: 1fr;
     }
-  }
-
-  @media (max-width: 767px) {
-    .tool-box {
-      grid-template-columns: 1fr; /* Single column for smaller screens */
+    
+    .tool-card {
+      height: auto;
+      min-height: 200px;
     }
-  }
-
-  h1, p, div {
-    color: white; /* Ensure text is visible against the dark background */
-    text-align: center;
   }
 </style>
 
 <div class="container">
-  <div class="alert bg-dark" role="alert">
-    <hr>
-    <h1><strong style="color: #eb6c0c">I</strong>nfo<strong style="color: #eb6c0c">-T</strong>ech</h1> 
-    <br>
+  <div class="header">
+    <h1><strong style="color: #eb6c0c">I</strong>nfo<strong style="color: #eb6c0c">-T</strong>ech</h1>
     <p><strong style="color:#14cff5">APIs & Functions Demo:</strong> Airport, Weather, Reverse Tax & more ..</p>
   </div>
 
-  <div class="tool-box">
-    <a href="{{ url_for('gpt') }}" data-description="Leverage cutting-edge AI to search vast information landscapes.">AI Search</a>
-    <a href="{{ url_for('airport_page') }}" data-description="Real-time data access point for global flight and airport statistics.">Airport Data</a>
-    <a href="{{ url_for('reverse_page') }}" data-description="Dissect and analyse textual data with reverse engineering methods.">Analyse Text</a>
-    <a href="{{ url_for('nft') }}" data-description="Interactive showcase for NFT collections and smart contract interactions.">NFT Demo</a>
-    <a href="{{ url_for('prime_page') }}" data-description="Efficiently compute and identify prime numbers with optimized algorithms.">Prime Finder</a>
-    <a href="{{ url_for('tax_page') }}" data-description="Calculate tax implications with reverse calculations for financial clarity.">Reverse Tax</a>
-    <a href="{{ url_for('superhero_page') }}" data-description="Aggregate and correlate data for super-powered beings in a structured format.">Superhero Data</a>
-    <a href="{{ url_for('weathery') }}" data-description="Precision forecasting tool utilizing advanced meteorological data sets.">Weather Precision</a>
+  <div class="tools-grid">
+    <div class="tool-card">
+      <div>
+        <h2 class="tool-title">AI Search</h2>
+        <p class="tool-description">Leverage cutting-edge AI to search vast information landscapes.</p>
+      </div>
+      <a href="{{ url_for('gpt') }}" class="tool-link">Explore →</a>
+    </div>
+
+    <div class="tool-card">
+      <div>
+        <h2 class="tool-title">Airport Data</h2>
+        <p class="tool-description">Real-time access to global flight and airport statistics.</p>
+      </div>
+      <a href="{{ url_for('airport_page') }}" class="tool-link">Explore →</a>
+    </div>
+
+    <div class="tool-card">
+      <div>
+        <h2 class="tool-title">Analyse Text</h2>
+        <p class="tool-description">Dissect and analyze textual data with reverse engineering methods.</p>
+      </div>
+      <a href="{{ url_for('reverse_page') }}" class="tool-link">Explore →</a>
+    </div>
+
+    <div class="tool-card">
+      <div>
+        <h2 class="tool-title">NFT Demo</h2>
+        <p class="tool-description">Interactive showcase for NFT collections and smart contract interactions.</p>
+      </div>
+      <a href="{{ url_for('nft') }}" class="tool-link">Explore →</a>
+    </div>
+
+    <div class="tool-card">
+      <div>
+        <h2 class="tool-title">Prime Finder</h2>
+        <p class="tool-description">Efficiently compute and identify prime numbers with optimized algorithms.</p>
+      </div>
+      <a href="{{ url_for('prime_page') }}" class="tool-link">Explore →</a>
+    </div>
+
+    <div class="tool-card">
+      <div>
+        <h2 class="tool-title">Reverse Tax</h2>
+        <p class="tool-description">Calculate tax implications with reverse calculations for financial clarity.</p>
+      </div>
+      <a href="{{ url_for('tax_page') }}" class="tool-link">Explore →</a>
+    </div>
+
+    <div class="tool-card">
+      <div>
+        <h2 class="tool-title">Superhero Data</h2>
+        <p class="tool-description">Aggregate and correlate data for super-powered beings in a structured format.</p>
+      </div>
+      <a href="{{ url_for('superhero_page') }}" class="tool-link">Explore →</a>
+    </div>
+
+    <div class="tool-card">
+      <div>
+        <h2 class="tool-title">Weather Precision</h2>
+        <p class="tool-description">Precision forecasting tool utilizing advanced meteorological data sets.</p>
+      </div>
+      <a href="{{ url_for('weathery') }}" class="tool-link">Explore →</a>
+    </div>
   </div>
 </div>
-
 {% endblock %}
