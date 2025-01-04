@@ -1,7 +1,9 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-<a class="navbar-brand" href="{{ url_for('index') }}" style="color: #eb6c0c"><strong>Liven-IT</strong></a>
 
-
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <a class="navbar-brand" href="{{ url_for('index') }}" style="color: #eb6c0c"><strong>Liven-IT</strong></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+    <span class="navbar-toggler-icon"></span>
+  </button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
@@ -9,41 +11,11 @@
       </li>
     </ul>
   </div>
-  <!-- Back arrow (conditionally rendered) -->
   {% if request.endpoint != 'index' %}
     <a href="{{ url_for('index') }}" class="back-arrow" aria-label="Back to Home">
-      <style>
-        .bi-arrow-left {
-          filter: drop-shadow(0 0 5px white); /* Adds a glow effect */
-          transition: filter 0.3s ease-in-out; /* Smooth transition for hover effect */
-        }
-
-        .bi-arrow-left:hover {
-          filter: drop-shadow(0 0 10px white); /* Increase glow when hovering */
-        }
-      </style>
-
-      <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" class="bi bi-arrow-left" viewBox="0 0 16 16">
+      <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" class="bi bi-arrow-left" viewBox="0 0 16 16" style="filter: drop-shadow(0 0 5px rgba(255,255,255,0.5));">
         <path fill-rule="evenodd" d="M15 8a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 0 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 0 1 .708 0l3.147 3.146H14.5a.5.5 0 0 1 .5.5z"/>
       </svg>
     </a>
   {% endif %}
-
-  <style>
-    .back-arrow {
-      position: absolute;
-      right: 10px;
-      top: 50%;
-      padding-top: 25px;
-      transform: translateY(-50%);
-    }
-    @media (max-width: 991px) {
-      .back-arrow {
-        position: fixed;
-        right: 10px;
-        top: 10px;
-      }
-    }
-  </style>
-  
 </nav>

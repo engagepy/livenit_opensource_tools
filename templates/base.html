@@ -1,63 +1,111 @@
+
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta property="og:title" content="Liven-IT">
-<meta property="og:type" content="website" />
-<meta property="og:image" content="https://imgwhale.xyz/75ckp23l6thuhg1">
-<meta property="og:url" content="http://livenit.com/">
-<meta name="twitter:card" content="Liven Info Tools">
-
-<!--  Non-Essential, But Recommended -->
-<meta property="og:description" content="Information Tools">
-<meta property="og:site_name" content="Liven-IT">
-<meta name="twitter:image:alt" content="Liven Info Tools">
-
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-    <title > Liven-IT! </title>
-    
-<link rel="icon"
-      type="image/ico"
-      href="static/favicon.ico">
-    
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://imgwhale.xyz/75ckp23l6thuhg1">
+    <meta property="og:url" content="http://livenit.com/">
+    <meta name="twitter:card" content="Liven Info Tools">
+    <meta property="og:description" content="Information Tools">
+    <meta property="og:site_name" content="Liven-IT">
+    <meta name="twitter:image:alt" content="Liven Info Tools">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <title>Liven-IT!</title>
+    <link rel="icon" type="image/ico" href="static/favicon.ico">
+    <style>
+      body {
+        background-color: #0a0a0a;
+        color: #ffffff;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell;
+      }
+      .navbar {
+        background: rgba(18, 18, 18, 0.95) !important;
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .card {
+        background: rgba(28, 28, 28, 0.95);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        transition: all 0.3s ease;
+      }
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+      }
+      .btn {
+        border-radius: 8px;
+        padding: 8px 16px;
+        transition: all 0.3s ease;
+      }
+      .btn-outline-info {
+        border-color: #14cff5;
+        color: #14cff5;
+      }
+      .btn-outline-info:hover {
+        background: #14cff5;
+        color: #000;
+      }
+      .alert {
+        border-radius: 12px;
+        background: rgba(40, 40, 40, 0.95);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .alert-success {
+        background: rgba(25, 135, 84, 0.2);
+        border-color: rgba(25, 135, 84, 0.4);
+        color: #ffffff;
+      }
+      .form-control {
+        background: rgba(40, 40, 40, 0.95);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: white;
+        border-radius: 8px;
+      }
+      .form-control:focus {
+        background: rgba(50, 50, 50, 0.95);
+        border-color: #14cff5;
+        color: white;
+        box-shadow: 0 0 0 0.2rem rgba(20, 207, 245, 0.25);
+      }
+      footer {
+        background: rgba(18, 18, 18, 0.95);
+        padding: 20px 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        margin-top: 40px;
+      }
+    </style>
   </head>
-  <body class = bg-dark>
+  <body>
     {% include 'nav.html' %}
-    {% block content %} {% endblock %}
-    
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <br>
+    <div class="container mt-4">
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          {% for message in messages %}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+              {{ message }}
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+      {% block content %}{% endblock %}
+    </div>
+    <footer class="text-center">
+      <p style="color: #14cff5">
+        <strong>-</strong> Powered by ZP | Made in 🇮🇳
+      </p>
+      <p style="color: #eb6c0c">
+        <b>Join the <a href="{{url_for('user')}}" class="text-warning">Community</a></b>
+      </p>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
   </body>
-
- <p align="center" class = bg-dark style = "color: #14cff5" >
-   <strong>-</strong> Powered by ZP
-   | Made in 🇮🇳<br>
-   <div class="alert bg-dark d-flex align-items-center" role="alert">
-    
-  </div>
-
- </p>
-  <p align="center" class = bg-dark style = "color: #eb6c0c" >
-   <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-    label="Info:">
-      <use xlink:href="#info-fill"/>
-    </svg>
-     <b> &nbsp; Join the <b> <a href="{{url_for('user')}}">Community </a>
-     </b> 
-     </b>
-   <div class="alert bg-dark d-flex align-items-center" role="alert">
-    
-  </div>
-
- </p
-</div>
 </html>
