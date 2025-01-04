@@ -38,7 +38,6 @@ def user():
 
     if form.validate_on_submit():
         name = form.name.data
-
         db["user"] += name
         form.name.data = ''
         email_id = form.email.data
@@ -99,17 +98,11 @@ def airport_page():
         form.airport.data = ''
         x = airport_message(airport)
         try:
-          
-          flash(x['name'])
-          flash(x['city'])
-          flash(x['country'])
-          flash(x['phone'])
-          flash(x['website'])
-          flash(x['icao'])
-        
+            combined_msg = "\n".join([x['name'], x['city'], x['country'], x['phone'], x['website'], x['icao']])
+            flash(combined_msg)
         except:
-          flash(x['error']['text'])
-          
+            flash(x['error']['text'])
+
 
     return render_template('airport.html', airport=airport, form=form)
 
@@ -123,9 +116,8 @@ def weathery():
         city = form.city.data.strip()
         form.city.data = None
         x = weather(city)
-        print(x)
-        for i in x[0:]:
-            flash(i)
+        combined_msg = "\n".join(x)
+        flash(combined_msg)
 
     return render_template('weather.html', city=city, form=form)
 
@@ -138,12 +130,8 @@ def btc():
         symbol = form.symbol.data.strip()
         form.symbol.data = ''
         result = coin(symbol)
-        flash(result[0])
-        flash(result[1])
-        flash(result[2])
-        flash(result[3])
-        flash(result[4])
-        flash(result[5])
+        combined_msg = "\n".join(result)
+        flash(combined_msg)
         print("btc_run")
     return render_template('crypto.html', symbol=symbol, form=form)
 
@@ -167,14 +155,8 @@ def reverse_page():
         space = f"Spaces Used: {result[4]}"
         total = f"Character Count: {alpha_num[3]}"
         char = f"Unique Special Types {alpha_num[2]}"
-        flash(alpha)
-        flash(upper)
-        flash(lower)
-        flash(space)
-        flash(digit)
-        flash(num)
-        flash(total)
-        flash(char)
+        combined_msg = "\n".join([alpha, upper, lower, space, digit, num, total, char])
+        flash(combined_msg)
     return render_template(
         'reverse.html',
         name=name,
@@ -193,8 +175,8 @@ def prime_page():
         name = form.name.data
         form.name.data = " "
         result = prime()
-
-        flash(result[0])
+        combined_msg = "\n".join(result)
+        flash(combined_msg)
         mathops = result[2]
         count = result[3]
     return render_template('prime.html',
@@ -226,11 +208,7 @@ def superhero_page():
         durability = f"Durablity: {a['durability']}"
         power = f"Power: {a['power']}"
         combat = f"Combat: {a['combat']}"
-        flash(n)
-        flash(intelligence)
-        flash(strength)
-        flash(speed, durability)
-        flash(power)
-        flash(combat)
+        combined_msg = "\n".join([n, intelligence, strength, speed, durability, power, combat])
+        flash(combined_msg)
 
     return render_template('superhero.html', name=name, form=form)
