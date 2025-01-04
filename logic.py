@@ -175,7 +175,7 @@ def prime_page():
         name = form.name.data
         form.name.data = " "
         result = prime()
-        combined_msg = "\n".join(result)
+        combined_msg = f"{result[0]}\n{result[1]}\nMath Operations: {result[2]}\nPrime Count: {result[3]}"
         flash(combined_msg)
         mathops = result[2]
         count = result[3]
