@@ -76,19 +76,16 @@
         border-top: 1px solid rgba(255, 255, 255, 0.1);
         margin-top: 40px;
       }
-      .flash-card {
-          background: rgba(28, 28, 28, 0.95);
-          border: 1px solid rgba(255, 255, 255, 0.1);
-          border-radius: 12px;
-          padding: 20px;
-          margin: 10px 0;
-          color: #fff;
-        }
-        .flash-card pre {
-          white-space: pre-wrap;
-          margin: 0;
-          font-family: inherit;
-        }
+      .flash-message {
+        color: #fff;
+        margin-bottom: 10px;
+        font-family: inherit;
+        white-space: pre-line;
+      }
+      .alert-success {
+        background: rgba(40, 167, 69, 0.2);
+        border: 1px solid rgba(40, 167, 69, 0.3);
+      }
     </style>
   </head>
   <body>
@@ -96,11 +93,16 @@
     <div class="container mt-4">
       {% with messages = get_flashed_messages() %}
         {% if messages %}
-          {% for message in messages %}
-            <div class="flash-card">
-              <pre>{{ message }}</pre>
-            </div>
-          {% endfor %}
+          <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {% for message in messages %}
+              <div class="flash-message">
+                {{ message | safe | replace('\n', '<br>') }}
+              </div>
+            {% endfor %}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
         {% endif %}
       {% endwith %}
       {% block content %}{% endblock %}
