@@ -26,6 +26,15 @@ form {
   width: 200px; /* Fixed width for the button */
   margin: 20px auto; /* Center the button */
 }
+.flash-message {
+  /* Add your airport styling here */
+  background-color: #28a745; /* Example: Green background */
+  color: white;
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
 </style>
 
   <p>
@@ -33,16 +42,16 @@ form {
      <h3 align = center style = "color: #14cff5">{{mathops}} Math Operations | {{count}} Prime Numbers Detected </h3> <br>
     
     <hr>
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
+    <div class="flash-message" role="alert">
     
 
   {% for message in get_flashed_messages() %}
       <h3> {{message}} </h3>
-  {%endfor%}
-   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-   <span aria-hidden="true">&times;</span>
-   </button>
-  </div>
+    {%endfor%}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    </div>
        <p> <h3>
     
       <b style = " color:#14cff5 "> <h3 align = "center"> Finished Calculation</h3></b> <br>
