@@ -28,10 +28,22 @@ form {
 }
 </style>
   <p>
-  {% if not name %} 
+  {% if not name %}
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <div class="flash-message alert-dismissible fade show">
+      {% for message in messages %}
+        {{ message }}
+      {% endfor %}
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  {% endif %}
+{% endwith %}
 <div class="alert bg-dark" role="alert">
   <hr>
-    <h1 align = center style = "color: #14cff5">AI Search - Anything</h1>     
+    <h1 align = center style = "color: #14cff5">AI Search</h1>     
   <br>
   <form method="POST">
     {{ form.hidden_tag() }}
@@ -45,7 +57,9 @@ form {
   </form>  
 </b> 
 </br>
-  <h7 align = center style = "color: white"><strong>Search Examples: </strong> <br>‣ List nearly extinct species with their location and population, <br>‣ largest diamond in the world give me its brief history, <br>‣ write me a tweet on trending HR policies of 2023,<br>‣ fish and corals found in Andaman Islands</h7>
+  <div align = left>
+  <h7 align = left style = "color: white"><strong>Search Examples: </strong> <br><br>‣ List extinct species <br>‣ largest diamond in the world <br>‣ write me a tweet on trending..<br>‣ fish and corals in Andaman</h7>
+  </div>
   <br>
   <hr>
   <a href="https://www.buymeacoffee.com/zorawar" target="_blank" rel="noopener"> <h7 align = center style = "color: orange"> Buy Me A Coffee </h7> </a>
