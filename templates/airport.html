@@ -38,7 +38,9 @@ div {color: white; text-align: left;}
    </button>
 
   {% for message in get_flashed_messages() %}
-      <h3> {{message}} </h3>
+      <div class="text-center">
+        <h4>{{ message | safe }}</h4>
+      </div>
   {%endfor%}
  
   </div>
