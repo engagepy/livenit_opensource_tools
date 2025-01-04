@@ -20,30 +20,33 @@
         max-width: 960px;
       }
       .flash-message {
-        background: rgba(20, 207, 245, 0.1);
-        border: 1px solid rgba(20, 207, 245, 0.2);
+        background: linear-gradient(145deg, #1a1a1a, #252525);
+        border: 1px solid rgba(255, 255, 255, 0.1);
         color: #fff;
-        padding: 20px;
+        padding: 2rem;
         margin-bottom: 20px;
-        border-radius: 12px;
+        border-radius: 15px;
         position: relative;
-        backdrop-filter: blur(10px);
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+      .flash-message:hover {
+        border-color: #14cff5;
       }
       .alert-dismissible .close {
         position: absolute;
-        right: 10px;
-        top: 10px;
+        right: 15px;
+        top: 15px;
         padding: 8px 12px;
-        color: rgba(255, 255, 255, 0.8);
+        color: #14cff5;
         background: none;
         border: none;
         font-size: 20px;
         cursor: pointer;
-        transition: color 0.2s;
+        transition: color 0.3s ease;
       }
       .alert-dismissible .close:hover {
-        color: #fff;
+        color: #ffffff;
       }
     </style>
   </head>
