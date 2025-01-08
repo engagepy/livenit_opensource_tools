@@ -28,6 +28,7 @@ requiredFiles = [".replit", "replit.nix", ".config", "venv"]
 [deployment]
 run = ["sh", "-c", "python3 app.py"]
 deploymentTarget = "cloudrun"
+build = ["sh", "-c", "pip install -r requirements.txt"]
 
 [[ports]]
 localPort = 5000
