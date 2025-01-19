@@ -17,6 +17,18 @@ from __main__ import app
 def index():
     return render_template('landing.html')
 
+@app.route('/ai-interview')
+def ai_interview():
+    return render_template('ai-interview.html')
+
+@app.route('/jewellery')
+def ai_jewellery():
+    return render_template('ai-jewellery.html')
+
+@app.route('/genai-expense')
+def genai_engineer():
+    return render_template('genai-engineer.html')
+
 
 @app.route('/gpt', methods=['GET', 'POST'])
 def gpt():

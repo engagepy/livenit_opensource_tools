@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+  body {
+    background-color: #0a0a0a;
+    color: #ffffff;
+    min-height: 100vh;
+  }
+
+  .container {
+    padding: 2rem 1rem;
+  }
+
+  .header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  iframe {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  .live-button {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.75rem 1.5rem;
+    background-color: #14cff5;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+    text-align: center;
+  }
+
+  .live-button:hover {
+    background-color: #0fa3c8;
+  }
+</style>
+
+<div class="container">
+  <div class="header">
+    <h1 style="font-size: 2.5rem; margin-bottom: 1rem; text-shadow: 0 2px 4px rgba(0,0,0,0.3)">
+        <strong style="color: #eb6c0c">AI</strong> Interviewer
+    </h1>
+    <p style="font-size: 1.2rem; color: #14cff5; letter-spacing: 0.5px">
+        Your complete AI-powered CV analysis and interview preparation tool.
+    </p>
+  </div>
+
+  <iframe src="https://ai-interviewer.replit.app/?embed=true" style="height: 450px; width: 100%;"></iframe>
+  
+  <div style="text-align: center;">
+    <a href="https://ai-interviewer.replit.app/" target="_blank" class="live-button">Live Deployment</a>
+  </div>
+</div>
+{% endblock %}
