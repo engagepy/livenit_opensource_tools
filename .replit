@@ -1,9 +1,9 @@
 # The command that runs the program. If the interpreter field is set, it will have priority and this run command will do nothing
-run = "python3 app.py"
+run = "python3 main.py"
 
 # The primary language of the repl. There can be others, though!
 language = "python3"
-entrypoint = "app.py"
+entrypoint = "main.py"
 # A list of globs that specify which files and directories should
 # be hidden in the workspace.
 hidden = ["venv", ".config", "**/__pycache__", "**/.mypy_cache", "**/*.pyc"]
@@ -26,9 +26,8 @@ language = "python3"
 requiredFiles = [".replit", "replit.nix", ".config", "venv"]
 
 [deployment]
-run = ["sh", "-c", "python3 app.py"]
+run = ["sh", "-c", "python3 main.py"]
 deploymentTarget = "cloudrun"
-build = ["sh", "-c", "pip install -r requirements.txt"]
 
 [[ports]]
 localPort = 5000
